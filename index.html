@@ -335,38 +335,38 @@
     </main>
 
     <footer><p>&copy; 2026 Projeto Agrinho | <span data-key="footer">Gestão Sustentável da Água</span></p></footer>
-   <script>
-        // DADOS DAS 8 EQUIPES POR IDIOMA
+ <script>
+        // DADOS DAS 8 EQUIPES - sem precisar colocar nome do gibi
         const equipesData = {
             pt: [
-                { id: 1, nome: "Equipe 1", participantes: ["Ana Silva", "Bruno Costa", "Carla Souza", "Diego Lima"], gibiPaginas: ["gibi1_p1.png"], videoUrl: "video1.mp4" },
-                { id: 2, nome: "Equipe 2", participantes: ["Eduardo Rocha", "Fernanda Alves", "Gabriel Martins", "Helena Dias"], gibiPaginas: ["gibi2_p1.png"], videoUrl: "video2.mp4" },
-                { id: 3, nome: "Equipe 3", participantes: ["Igor Pereira", "Julia Mendes", "Lucas Ferreira", "Mariana Gomes"], gibiPaginas: ["gibi3_p1.png"], videoUrl: "video3.mp4" },
-                { id: 4, nome: "Equipe 4", participantes: ["Nome 1", "Nome 2", "Nome 3", "Nome 4"], gibiPaginas: ["gibi4_p1.png"], videoUrl: "video4.mp4" },
-                { id: 5, nome: "Equipe 5", participantes: ["Nome 1", "Nome 2", "Nome 3", "Nome 4"], gibiPaginas: ["gibi5_p1.png"], videoUrl: "video5.mp4" },
-                { id: 6, nome: "Equipe 6", participantes: ["Nome 1", "Nome 2", "Nome 3", "Nome 4"], gibiPaginas: ["gibi6_p1.png"], videoUrl: "video6.mp4" },
-                { id: 7, nome: "Equipe 7", participantes: ["Nome 1", "Nome 2", "Nome 3", "Nome 4"], gibiPaginas: ["gibi7_p1.png"], videoUrl: "video7.mp4" },
-                { id: 8, nome: "Equipe 8", participantes: ["Nome 1", "Nome 2", "Nome 3", "Nome 4"], gibiPaginas: ["gibi8_p1.png"], videoUrl: "video8.mp4" }
+                { id: 1, nome: "Equipe 1", participantes: ["Ana Silva", "Bruno Costa", "Carla Souza", "Diego Lima"], totalPaginas: 5, videoUrl: "video1.mp4" },
+                { id: 2, nome: "Equipe 2", participantes: ["Eduardo Rocha", "Fernanda Alves", "Gabriel Martins", "Helena Dias"], totalPaginas: 5, videoUrl: "video2.mp4" },
+                { id: 3, nome: "Equipe 3", participantes: ["Igor Pereira", "Julia Mendes", "Lucas Ferreira", "Mariana Gomes"], totalPaginas: 5, videoUrl: "video3.mp4" },
+                { id: 4, nome: "Equipe 4", participantes: ["Nome 1", "Nome 2", "Nome 3", "Nome 4"], totalPaginas: 5, videoUrl: "video4.mp4" },
+                { id: 5, nome: "Equipe 5", participantes: ["Nome 1", "Nome 2", "Nome 3", "Nome 4"], totalPaginas: 5, videoUrl: "video5.mp4" },
+                { id: 6, nome: "Equipe 6", participantes: ["Nome 1", "Nome 2", "Nome 3", "Nome 4"], totalPaginas: 5, videoUrl: "video6.mp4" },
+                { id: 7, nome: "Equipe 7", participantes: ["Nome 1", "Nome 2", "Nome 3", "Nome 4"], totalPaginas: 5, videoUrl: "video7.mp4" },
+                { id: 8, nome: "Equipe 8", participantes: ["Nome 1", "Nome 2", "Nome 3", "Nome 4"], totalPaginas: 5, videoUrl: "video8.mp4" }
             ],
             en: [
-                { id: 1, nome: "Team 1", participantes: ["Ana Silva", "Bruno Costa", "Carla Souza", "Diego Lima"], gibiPaginas: ["gibi1_p1.png"], videoUrl: "video1.mp4" },
-                { id: 2, nome: "Team 2", participantes: ["Eduardo Rocha", "Fernanda Alves", "Gabriel Martins", "Helena Dias"], gibiPaginas: ["gibi2_p1.png"], videoUrl: "video2.mp4" },
-                { id: 3, nome: "Team 3", participantes: ["Igor Pereira", "Julia Mendes", "Lucas Ferreira", "Mariana Gomes"], gibiPaginas: ["gibi3_p1.png"], videoUrl: "video3.mp4" },
-                { id: 4, nome: "Team 4", participantes: ["Name 1", "Name 2", "Name 3", "Name 4"], gibiPaginas: ["gibi4_p1.png"], videoUrl: "video4.mp4" },
-                { id: 5, nome: "Team 5", participantes: ["Name 1", "Name 2", "Name 3", "Name 4"], gibiPaginas: ["gibi5_p1.png"], videoUrl: "video5.mp4" },
-                { id: 6, nome: "Team 6", participantes: ["Name 1", "Name 2", "Name 3", "Name 4"], gibiPaginas: ["gibi6_p1.png"], videoUrl: "video6.mp4" },
-                { id: 7, nome: "Team 7", participantes: ["Name 1", "Name 2", "Name 3", "Name 4"], gibiPaginas: ["gibi7_p1.png"], videoUrl: "video7.mp4" },
-                { id: 8, nome: "Team 8", participantes: ["Name 1", "Name 2", "Name 3", "Name 4"], gibiPaginas: ["gibi8_p1.png"], videoUrl: "video8.mp4" }
+                { id: 1, nome: "Team 1", participantes: ["Ana Silva", "Bruno Costa", "Carla Souza", "Diego Lima"], totalPaginas: 5, videoUrl: "video1.mp4" },
+                { id: 2, nome: "Team 2", participantes: ["Eduardo Rocha", "Fernanda Alves", "Gabriel Martins", "Helena Dias"], totalPaginas: 5, videoUrl: "video2.mp4" },
+                { id: 3, nome: "Team 3", participantes: ["Igor Pereira", "Julia Mendes", "Lucas Ferreira", "Mariana Gomes"], totalPaginas: 5, videoUrl: "video3.mp4" },
+                { id: 4, nome: "Team 4", participantes: ["Name 1", "Name 2", "Name 3", "Name 4"], totalPaginas: 5, videoUrl: "video4.mp4" },
+                { id: 5, nome: "Team 5", participantes: ["Name 1", "Name 2", "Name 3", "Name 4"], totalPaginas: 5, videoUrl: "video5.mp4" },
+                { id: 6, nome: "Team 6", participantes: ["Name 1", "Name 2", "Name 3", "Name 4"], totalPaginas: 5, videoUrl: "video6.mp4" },
+                { id: 7, nome: "Team 7", participantes: ["Name 1", "Name 2", "Name 3", "Name 4"], totalPaginas: 5, videoUrl: "video7.mp4" },
+                { id: 8, nome: "Team 8", participantes: ["Name 1", "Name 2", "Name 3", "Name 4"], totalPaginas: 5, videoUrl: "video8.mp4" }
             ],
             es: [
-                { id: 1, nome: "Equipo 1", participantes: ["Ana Silva", "Bruno Costa", "Carla Souza", "Diego Lima"], gibiPaginas: ["gibi1_p1.png"], videoUrl: "video1.mp4" },
-                { id: 2, nome: "Equipo 2", participantes: ["Eduardo Rocha", "Fernanda Alves", "Gabriel Martins", "Helena Dias"], gibiPaginas: ["gibi2_p1.png"], videoUrl: "video2.mp4" },
-                { id: 3, nome: "Equipo 3", participantes: ["Igor Pereira", "Julia Mendes", "Lucas Ferreira", "Mariana Gomes"], gibiPaginas: ["gibi3_p1.png"], videoUrl: "video3.mp4" },
-                { id: 4, nome: "Equipo 4", participantes: ["Nombre 1", "Nombre 2", "Nombre 3", "Nombre 4"], gibiPaginas: ["gibi4_p1.png"], videoUrl: "video4.mp4" },
-                { id: 5, nome: "Equipo 5", participantes: ["Nombre 1", "Nombre 2", "Nombre 3", "Nombre 4"], gibiPaginas: ["gibi5_p1.png"], videoUrl: "video5.mp4" },
-                { id: 6, nome: "Equipo 6", participantes: ["Nombre 1", "Nombre 2", "Nombre 3", "Nombre 4"], gibiPaginas: ["gibi6_p1.png"], videoUrl: "video6.mp4" },
-                { id: 7, nome: "Equipo 7", participantes: ["Nombre 1", "Nombre 2", "Nombre 3", "Nombre 4"], gibiPaginas: ["gibi7_p1.png"], videoUrl: "video7.mp4" },
-                { id: 8, nome: "Equipo 8", participantes: ["Nombre 1", "Nombre 2", "Nombre 3", "Nombre 4"], gibiPaginas: ["gibi8_p1.png"], videoUrl: "video8.mp4" }
+                { id: 1, nome: "Equipo 1", participantes: ["Ana Silva", "Bruno Costa", "Carla Souza", "Diego Lima"], totalPaginas: 5, videoUrl: "video1.mp4" },
+                { id: 2, nome: "Equipo 2", participantes: ["Eduardo Rocha", "Fernanda Alves", "Gabriel Martins", "Helena Dias"], totalPaginas: 5, videoUrl: "video2.mp4" },
+                { id: 3, nome: "Equipo 3", participantes: ["Igor Pereira", "Julia Mendes", "Lucas Ferreira", "Mariana Gomes"], totalPaginas: 5, videoUrl: "video3.mp4" },
+                { id: 4, nome: "Equipo 4", participantes: ["Nombre 1", "Nombre 2", "Nombre 3", "Nombre 4"], totalPaginas: 5, videoUrl: "video4.mp4" },
+                { id: 5, nome: "Equipo 5", participantes: ["Nombre 1", "Nombre 2", "Nombre 3", "Nombre 4"], totalPaginas: 5, videoUrl: "video5.mp4" },
+                { id: 6, nome: "Equipo 6", participantes: ["Nombre 1", "Nombre 2", "Nombre 3", "Nombre 4"], totalPaginas: 5, videoUrl: "video6.mp4" },
+                { id: 7, nome: "Equipo 7", participantes: ["Nombre 1", "Nombre 2", "Nombre 3", "Nombre 4"], totalPaginas: 5, videoUrl: "video7.mp4" },
+                { id: 8, nome: "Equipo 8", participantes: ["Nombre 1", "Nombre 2", "Nombre 3", "Nombre 4"], totalPaginas: 5, videoUrl: "video8.mp4" }
             ]
         };
 
@@ -476,20 +476,36 @@
         }
         function fecharOverlay(id) { document.getElementById(id).style.display = 'none'; }
 
-        // GIBI E VIDEO
+        // GIBI DINAMICO POR EQUIPE
         function abrirGibi(equipaId) {
             const idioma = getIdiomaAtual();
-            equipaAtual = equipesData[idioma].find(e => e.id === equipaId); paginaAtual = 0;
+            equipaAtual = equipesData[idioma].find(e => e.id === equipaId);
+            paginaAtual = 0;
             fecharOverlay('curiosidade-overlay');
             document.getElementById('gibi-titulo').innerText = `Gibi - ${equipaAtual.nome}`;
-            document.getElementById('gibi-overlay').style.display = 'block'; atualizarGibi();
+            document.getElementById('gibi-overlay').style.display = 'block';
+            atualizarGibi();
         }
+
         function atualizarGibi() {
-            document.getElementById("pagina").src = equipaAtual.gibiPaginas[paginaAtual];
-            document.getElementById("contador").innerText = `${paginaAtual + 1} / ${equipaAtual.gibiPaginas.length}`;
+            // GERA O NOME AUTOMATICO: gibi_p1equipe1.png, gibi_p2equipe1.png...
+            const nomeArquivo = `gibi_p${paginaAtual + 1}equipe${equipaAtual.id}.png`;
+            document.getElementById("pagina").src = nomeArquivo;
+            document.getElementById("contador").innerText = `${paginaAtual + 1} / ${equipaAtual.totalPaginas}`;
         }
-        function proxima() { if (paginaAtual < equipaAtual.gibiPaginas.length - 1) { paginaAtual++; atualizarGibi(); } }
-        function anterior() { if (paginaAtual > 0) { paginaAtual--; atualizarGibi(); } }
+
+        function proxima() {
+            if (paginaAtual < equipaAtual.totalPaginas - 1) {
+                paginaAtual++;
+                atualizarGibi();
+            }
+        }
+        function anterior() {
+            if (paginaAtual > 0) {
+                paginaAtual--;
+                atualizarGibi();
+            }
+        }
 
         function abrirVideo(equipaId) {
             const idioma = getIdiomaAtual();
@@ -603,7 +619,7 @@
                 const key = el.getAttribute('data-key');
                 if(t[key]) el.innerHTML = t[key];
             });
-            renderizarEquipes(); // re-renderiza equipes no novo idioma
+            renderizarEquipes();
         }
 
         function mudarIdioma(idioma) {
