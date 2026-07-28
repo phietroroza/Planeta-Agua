@@ -474,7 +474,17 @@
             document.getElementById('curiosidade-overlay').style.display = 'block';
             aplicarTraducao();
         }
-        function fecharOverlay(id) { document.getElementById(id).style.display = 'none'; }
+
+        // FUNÇÃO ARRUMADA PRA PARAR O VIDEO
+        function fecharOverlay(id) {
+            document.getElementById(id).style.display = 'none';
+            if(id === 'video-overlay') {
+                const video = document.getElementById('video-player');
+                video.pause();
+                video.currentTime = 0;
+                video.src = ""; // limpa pra parar de vez o som
+            }
+        }
 
         // GIBI DINAMICO POR EQUIPE
         function abrirGibi(equipaId) {
@@ -488,7 +498,6 @@
         }
 
         function atualizarGibi() {
-            // NOME: gibi_p1equipe1.png, gibi_p2equipe1.png...
             const nomeArquivo = `gibi_p${paginaAtual + 1}equipe${equipaAtual.id}.png`;
             document.getElementById("pagina").src = nomeArquivo;
             document.getElementById("contador").innerText = `${paginaAtual + 1} / ${equipaAtual.totalPaginas}`;
@@ -513,7 +522,6 @@
             equipaAtual = equipesData[idioma].find(e => e.id === equipaId);
             fecharOverlay('curiosidade-overlay');
             document.getElementById('video-titulo').innerText = `${equipaAtual.nome} - Stop Motion`;
-            // NOME: stopmotionequipe1.mp4, stopmotionequipe2.mp4...
             document.getElementById('video-player').src = `stopmotionequipe${equipaAtual.id}.mp4`;
             document.getElementById('video-overlay').style.display = 'block';
         }
@@ -640,10 +648,12 @@
             aplicarTraducao();
         });
 
-        // FECHAR OVERLAY AO CLICAR FORA
+        // FECHAR OVERLAY AO CLICAR FORA - JÁ CHAMA A FUNÇÃO NOVA
         document.getElementById('curiosidade-overlay').addEventListener('click', (e) => { if (e.target.id === 'curiosidade-overlay') fecharOverlay('curiosidade-overlay'); });
         document.getElementById('gibi-overlay').addEventListener('click', (e) => { if (e.target.id === 'gibi-overlay') fecharOverlay('gibi-overlay'); });
         document.getElementById('video-overlay').addEventListener('click', (e) => { if (e.target.id === 'video-overlay') fecharOverlay('video-overlay'); });
     </script>
+</body>
+</html>
 </body>
 </html>
