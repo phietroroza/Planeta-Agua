@@ -239,38 +239,73 @@
     </main>
 
     <footer><p>&copy; 2026 Projeto Agrinho | <span data-key="footer">Gestão Sustentável da Água</span></p></footer>
-    <script>
+  <script>
+        // AGORA SEPARADO: Nomes do GIBI e nomes do STOP são diferentes
         const equipesData = {
-            pt: [
-                { id: 1, nome: "Equipe 1", participantes: ["Phietro Emanuel", "Luiz Fernando", "Vitor Andrioli", "Anderson", "João Victor Boamorte"], totalPaginas: 10 },
-                { id: 2, nome: "Equipe 2", participantes: ["Larah Prado", "João Antônio", "Gabrieli Oshiro"], totalPaginas: 5 },
-                { id: 3, nome: "Equipe 3", participantes: ["Igor Pereira", "Julia Mendes", "Lucas Ferreira", "Mariana Gomes"], totalPaginas: 5 },
-                { id: 4, nome: "Equipe 4", participantes: ["Nome 1", "Nome 2", "Nome 3", "Nome 4"], totalPaginas: 5 },
-                { id: 5, nome: "Equipe 5", participantes: ["Nome 1", "Nome 2", "Nome 3", "Nome 4"], totalPaginas: 5 },
-                { id: 6, nome: "Equipe 6", participantes: ["Nome 1", "Nome 2", "Nome 3", "Nome 4"], totalPaginas: 5 },
-                { id: 7, nome: "Equipe 7", participantes: ["Nome 1", "Nome 2", "Nome 3", "Nome 4"], totalPaginas: 5 },
-                { id: 8, nome: "Equipe 8", participantes: ["Nome 1", "Nome 2", "Nome 3", "Nome 4"], totalPaginas: 5 }
-            ],
-            en: [
-                { id: 1, nome: "Team 1", participantes: ["Phietro Emanuel", "Luiz Fernando", "Vitor Andrioli", "Anderson", "João Victor Boamorte"], totalPaginas: 10 },
-                { id: 2, nome: "Team 2", participantes: ["Larah Prado", "João Antônio", "Gabrieli Oshiro"], totalPaginas: 5 },
-                { id: 3, nome: "Team 3", participantes: ["Igor Pereira", "Julia Mendes", "Lucas Ferreira", "Mariana Gomes"], totalPaginas: 5 },
-                { id: 4, nome: "Team 4", participantes: ["Name 1", "Name 2", "Name 3", "Name 4"], totalPaginas: 5 },
-                { id: 5, nome: "Team 5", participantes: ["Name 1", "Name 2", "Name 3", "Name 4"], totalPaginas: 5 },
-                { id: 6, nome: "Team 6", participantes: ["Name 1", "Name 2", "Name 3", "Name 4"], totalPaginas: 5 },
-                { id: 7, nome: "Team 7", participantes: ["Name 1", "Name 2", "Name 3", "Name 4"], totalPaginas: 5 },
-                { id: 8, nome: "Team 8", participantes: ["Name 1", "Name 2", "Name 3", "Name 4"], totalPaginas: 5 }
-            ],
-            es: [
-                { id: 1, nome: "Equipo 1", participantes: ["Phietro Emanuel", "Luiz Fernando", "Vitor Andrioli", "Anderson", "João Victor Boamorte"], totalPaginas: 10 },
-                { id: 2, nome: "Equipo 2", participantes: ["Larah Prado", "João Antônio", "Gabrieli Oshiro"], totalPaginas: 5 },
-                { id: 3, nome: "Equipo 3", participantes: ["Igor Pereira", "Julia Mendes", "Lucas Ferreira", "Mariana Gomes"], totalPaginas: 5 },
-                { id: 4, nome: "Equipo 4", participantes: ["Nombre 1", "Nombre 2", "Nombre 3", "Nombre 4"], totalPaginas: 5 },
-                { id: 5, nome: "Equipo 5", participantes: ["Nombre 1", "Nombre 2", "Nombre 3", "Nombre 4"], totalPaginas: 5 },
-                { id: 6, nome: "Equipo 6", participantes: ["Nombre 1", "Nombre 2", "Nombre 3", "Nombre 4"], totalPaginas: 5 },
-                { id: 7, nome: "Equipo 7", participantes: ["Nombre 1", "Nombre 2", "Nombre 3", "Nombre 4"], totalPaginas: 5 },
-                { id: 8, nome: "Equipo 8", participantes: ["Nombre 1", "Nombre 2", "Nombre 3", "Nombre 4"], totalPaginas: 5 }
-            ]
+            gibi: {
+                pt: [
+                    { id: 1, nome: "Equipe 1", participantes: ["Phietro Emanuel", "Luiz Fernando", "Vitor Andrioli", "Anderson", "João Victor Boamorte"], totalPaginas: 10 },
+                    { id: 2, nome: "Equipe 2", participantes: ["Larah Prado", "João Antônio", "Gabrieli Oshiro"], totalPaginas: 5 },
+                    { id: 3, nome: "Equipe 3", participantes: ["Igor Pereira", "Julia Mendes", "Lucas Ferreira", "Mariana Gomes"], totalPaginas: 5 },
+                    { id: 4, nome: "Equipe 4", participantes: ["Nome G4-1", "Nome G4-2", "Nome G4-3", "Nome G4-4"], totalPaginas: 5 },
+                    { id: 5, nome: "Equipe 5", participantes: ["Nome G5-1", "Nome G5-2", "Nome G5-3", "Nome G5-4"], totalPaginas: 5 },
+                    { id: 6, nome: "Equipe 6", participantes: ["Nome G6-1", "Nome G6-2", "Nome G6-3", "Nome G6-4"], totalPaginas: 5 },
+                    { id: 7, nome: "Equipe 7", participantes: ["Nome G7-1", "Nome G7-2", "Nome G7-3", "Nome G7-4"], totalPaginas: 5 },
+                    { id: 8, nome: "Equipe 8", participantes: ["Nome G8-1", "Nome G8-2", "Nome G8-3", "Nome G8-4"], totalPaginas: 5 }
+                ],
+                en: [
+                    { id: 1, nome: "Team 1", participantes: ["Phietro Emanuel", "Luiz Fernando", "Vitor Andrioli", "Anderson", "João Victor Boamorte"], totalPaginas: 10 },
+                    { id: 2, nome: "Team 2", participantes: ["Larah Prado", "João Antônio", "Gabrieli Oshiro"], totalPaginas: 5 },
+                    { id: 3, nome: "Team 3", participantes: ["Igor Pereira", "Julia Mendes", "Lucas Ferreira", "Mariana Gomes"], totalPaginas: 5 },
+                    { id: 4, nome: "Team 4", participantes: ["Name G4-1", "Name G4-2", "Name G4-3", "Name G4-4"], totalPaginas: 5 },
+                    { id: 5, nome: "Team 5", participantes: ["Name G5-1", "Name G5-2", "Name G5-3", "Name G5-4"], totalPaginas: 5 },
+                    { id: 6, nome: "Team 6", participantes: ["Name G6-1", "Name G6-2", "Name G6-3", "Name G6-4"], totalPaginas: 5 },
+                    { id: 7, nome: "Team 7", participantes: ["Name G7-1", "Name G7-2", "Name G7-3", "Name G7-4"], totalPaginas: 5 },
+                    { id: 8, nome: "Team 8", participantes: ["Name G8-1", "Name G8-2", "Name G8-3", "Name G8-4"], totalPaginas: 5 }
+                ],
+                es: [
+                    { id: 1, nome: "Equipo 1", participantes: ["Phietro Emanuel", "Luiz Fernando", "Vitor Andrioli", "Anderson", "João Victor Boamorte"], totalPaginas: 10 },
+                    { id: 2, nome: "Equipo 2", participantes: ["Larah Prado", "João Antônio", "Gabrieli Oshiro"], totalPaginas: 5 },
+                    { id: 3, nome: "Equipo 3", participantes: ["Igor Pereira", "Julia Mendes", "Lucas Ferreira", "Mariana Gomes"], totalPaginas: 5 },
+                    { id: 4, nome: "Equipo 4", participantes: ["Nombre G4-1", "Nombre G4-2", "Nombre G4-3", "Nombre G4-4"], totalPaginas: 5 },
+                    { id: 5, nome: "Equipo 5", participantes: ["Nombre G5-1", "Nombre G5-2", "Nombre G5-3", "Nombre G5-4"], totalPaginas: 5 },
+                    { id: 6, nome: "Equipo 6", participantes: ["Nombre G6-1", "Nombre G6-2", "Nombre G6-3", "Nombre G6-4"], totalPaginas: 5 },
+                    { id: 7, nome: "Equipo 7", participantes: ["Nombre G7-1", "Nombre G7-2", "Nombre G7-3", "Nombre G7-4"], totalPaginas: 5 },
+                    { id: 8, nome: "Equipo 8", participantes: ["Nombre G8-1", "Nombre G8-2", "Nombre G8-3", "Nombre G8-4"], totalPaginas: 5 }
+                ]
+            },
+            stopmotion: {
+                pt: [
+                    { id: 1, nome: "Equipe 1", participantes: ["Phietro Emanuel", "Luiz Fernando", "Vitor Andrioli", "Anderson", "João Victor Boamorte"], totalPaginas: 1 },
+                    { id: 2, nome: "Equipe 2", participantes: ["Nome S2-1", "Nome S2-2", "Nome S2-3"], totalPaginas: 1 },
+                    { id: 3, nome: "Equipe 3", participantes: ["Nome S3-1", "Nome S3-2", "Nome S3-3"], totalPaginas: 1 },
+                    { id: 4, nome: "Equipe 4", participantes: ["Nome S4-1", "Nome S4-2", "Nome S4-3", "Nome S4-4"], totalPaginas: 1 },
+                    { id: 5, nome: "Equipe 5", participantes: ["Nome S5-1", "Nome S5-2", "Nome S5-3", "Nome S5-4"], totalPaginas: 1 },
+                    { id: 6, nome: "Equipe 6", participantes: ["Nome S6-1", "Nome S6-2", "Nome S6-3", "Nome S6-4"], totalPaginas: 1 },
+                    { id: 7, nome: "Equipe 7", participantes: ["Nome S7-1", "Nome S7-2", "Nome S7-3", "Nome S7-4"], totalPaginas: 1 },
+                    { id: 8, nome: "Equipe 8", participantes: ["Nome S8-1", "Nome S8-2", "Nome S8-3", "Nome S8-4"], totalPaginas: 1 }
+                ],
+                en: [
+                    { id: 1, nome: "Team 1", participantes: ["Phietro Emanuel", "Luiz Fernando", "Vitor Andrioli", "Anderson", "João Victor Boamorte"], totalPaginas: 1 },
+                    { id: 2, nome: "Team 2", participantes: ["Name S2-1", "Name S2-2", "Name S2-3"], totalPaginas: 1 },
+                    { id: 3, nome: "Team 3", participantes: ["Name S3-1", "Name S3-2", "Name S3-3"], totalPaginas: 1 },
+                    { id: 4, nome: "Team 4", participantes: ["Name S4-1", "Name S4-2", "Name S4-3", "Name S4-4"], totalPaginas: 1 },
+                    { id: 5, nome: "Team 5", participantes: ["Name S5-1", "Name S5-2", "Name S5-3", "Name S5-4"], totalPaginas: 1 },
+                    { id: 6, nome: "Team 6", participantes: ["Name S6-1", "Name S6-2", "Name S6-3", "Name S6-4"], totalPaginas: 1 },
+                    { id: 7, nome: "Team 7", participantes: ["Name S7-1", "Name S7-2", "Name S7-3", "Name S7-4"], totalPaginas: 1 },
+                    { id: 8, nome: "Team 8", participantes: ["Name S8-1", "Name S8-2", "Name S8-3", "Name S8-4"], totalPaginas: 1 }
+                ],
+                es: [
+                    { id: 1, nome: "Equipo 1", participantes: ["Phietro Emanuel", "Luiz Fernando", "Vitor Andrioli", "Anderson", "João Victor Boamorte"], totalPaginas: 1 },
+                    { id: 2, nome: "Equipo 2", participantes: ["Nombre S2-1", "Nombre S2-2", "Nombre S2-3"], totalPaginas: 1 },
+                    { id: 3, nome: "Equipo 3", participantes: ["Nombre S3-1", "Nombre S3-2", "Nombre S3-3"], totalPaginas: 1 },
+                    { id: 4, nome: "Equipo 4", participantes: ["Nombre S4-1", "Nombre S4-2", "Nombre S4-3", "Nombre S4-4"], totalPaginas: 1 },
+                    { id: 5, nome: "Equipo 5", participantes: ["Nombre S5-1", "Nombre S5-2", "Nombre S5-3", "Nombre S5-4"], totalPaginas: 1 },
+                    { id: 6, nome: "Equipo 6", participantes: ["Nombre S6-1", "Nombre S6-2", "Nombre S6-3", "Nombre S6-4"], totalPaginas: 1 },
+                    { id: 7, nome: "Equipo 7", participantes: ["Nombre S7-1", "Nombre S7-2", "Nombre S7-3", "Nombre S7-4"], totalPaginas: 1 },
+                    { id: 8, nome: "Equipo 8", participantes: ["Nombre S8-1", "Nombre S8-2", "Nombre S8-3", "Nombre S8-4"], totalPaginas: 1 }
+                ]
+            }
         };
 
         const quizData = {
@@ -313,27 +348,61 @@
         };
 
         let equipaAtual = null; let paginaAtual = 0; let currentQ = 0, quizScore = 0; let tipoTrabalhoAtual = 'gibi';
-        function getIdiomaAtual() { return localStorage.getItem('idiomaSite') || 'pt'; }
+
+        function getIdiomaAtual() {
+            return localStorage.getItem('idiomaSite') || 'pt'; // VOLTOU A FUNCIONAR
+        }
 
         function mostrarListaEquipes(tipo) {
             tipoTrabalhoAtual = tipo;
             const idioma = getIdiomaAtual();
-            const dados = equipesData[idioma];
+            const dados = equipesData[tipo][idioma];
             const container = document.getElementById('lista-equipes-container');
             let titulo = tipo === 'gibi'? 'Gibi - Escolha uma Equipe' : 'Stop Motion - Escolha uma Equipe';
+            if(idioma === 'en') titulo = tipo === 'gibi'? 'Comic - Choose a Team' : 'Stop Motion - Choose a Team';
+            if(idioma === 'es') titulo = tipo === 'gibi'? 'Cómic - Elige un Equipo' : 'Stop Motion - Elige un Equipo';
+
             container.innerHTML = `<h3 style="text-align:center; color:var(--secondary); font-size:2rem; margin-bottom:2rem;">${titulo}</h3><div class="equipes-grid" id="equipes-dinamicas"></div>`;
             const grid = document.getElementById('equipes-dinamicas');
             dados.forEach(equipe => {
                 const card = document.createElement('div'); card.className = 'equipe-card';
-                card.onclick = () => tipo === 'gibi'? abrirGibi(equipe.id) : abrirVideo(equipe.id);
+                card.onclick = () => mostrarParticipantes(equipe.id);
                 card.innerHTML = `<div class="equipe-header">${equipe.nome}</div>`;
                 grid.appendChild(card);
             });
         }
 
+        function mostrarParticipantes(equipaId) {
+            const idioma = getIdiomaAtual();
+            equipaAtual = equipesData[tipoTrabalhoAtual][idioma].find(e => e.id === equipaId);
+            const txtParticipantes = idioma === 'en'? 'Participants:' : idioma === 'es'? 'Participantes:' : 'Participantes:';
+            const txtAvancar = idioma === 'en'? 'Continue →' : idioma === 'es'? 'Avanzar →' : 'Avançar →';
+
+            const conteudo = `
+                <h2 style="text-align:center; color:var(--secondary);">${equipaAtual.nome}</h2>
+                <h3 style="color:var(--secondary); margin:20px 0 10px;">${txtParticipantes}</h3>
+                <ul>${equipaAtual.participantes.map(p => `<li>${p}</li>`).join('')}</ul>
+                <div style="display:flex; gap:1rem; justify-content:center; margin-top:30px;">
+                    <button class="btn" onclick="abrirTrabalho()">${txtAvancar}</button>
+                </div>
+            `;
+            document.getElementById('curiosidade-detalhe').innerHTML = conteudo;
+            document.getElementById('curiosidade-overlay').style.display = 'block';
+        }
+
+        function abrirTrabalho() {
+            fecharOverlay('curiosidade-overlay');
+            if(tipoTrabalhoAtual === 'gibi') {
+                abrirGibi(equipaAtual.id);
+            } else {
+                abrirVideo(equipaAtual.id);
+            }
+        }
+
         function abrirGibi(equipaId) {
-            const idioma = getIdiomaAtual(); equipaAtual = equipesData[idioma].find(e => e.id === equipaId); paginaAtual = 0;
-            document.getElementById('gibi-titulo').innerText = `Gibi - ${equipaAtual.nome}`;
+            const idioma = getIdiomaAtual(); equipaAtual = equipesData.gibi[idioma].find(e => e.id === equipaId); paginaAtual = 0;
+            const txt = idioma === 'en'? 'Comic - ' : idioma === 'es'? 'Cómic - ' : 'Gibi - ';
+            document.getElementById('gibi-titulo').innerText = `${txt}${equipaAtual.nome}`;
             document.getElementById('gibi-overlay').style.display = 'block'; atualizarGibi();
         }
         function atualizarGibi() {
@@ -345,8 +414,9 @@
         function anterior() { if (paginaAtual > 0) { paginaAtual--; atualizarGibi(); } }
 
         function abrirVideo(equipaId) {
-            const idioma = getIdiomaAtual(); equipaAtual = equipesData[idioma].find(e => e.id === equipaId);
-            document.getElementById('video-titulo').innerText = `${equipaAtual.nome} - Stop Motion`;
+            const idioma = getIdiomaAtual(); equipaAtual = equipesData.stopmotion[idioma].find(e => e.id === equipaId);
+            const txt = idioma === 'en'? ' - Stop Motion' : idioma === 'es'? ' - Stop Motion' : ' - Stop Motion';
+            document.getElementById('video-titulo').innerText = `${equipaAtual.nome}${txt}`;
             document.getElementById('video-player').src = `stopmotionequipe${equipaAtual.id}.mp4`;
             document.getElementById('video-overlay').style.display = 'block';
         }
@@ -449,7 +519,14 @@
             const idioma = getIdiomaAtual(); const t = traducoes[idioma];
             document.querySelectorAll('[data-key]').forEach(el => { const key = el.getAttribute('data-key'); if(t[key]) el.innerHTML = t[key]; });
         }
-        function mudarIdioma(idioma) { localStorage.setItem('idiomaSite', idioma); aplicarTraducao(); }
+
+        function mudarIdioma(idioma) {
+            localStorage.setItem('idiomaSite', idioma);
+            aplicarTraducao();
+            if(document.getElementById('lista-equipes-container').innerHTML!== '') {
+                mostrarListaEquipes(tipoTrabalhoAtual);
+            }
+        }
 
         document.addEventListener('DOMContentLoaded', () => {
             const corSalva = localStorage.getItem('corSite') || '#00bfff';
