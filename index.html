@@ -152,7 +152,48 @@
             section { padding: 50px 20px; }.section-title { font-size: 2rem; }
        .grid-container,.equipes-grid,.dicas-container { grid-template-columns: 1fr; }
         }
-    </style>
+    
+body::before{
+content:"";position:fixed;inset:0;pointer-events:none;
+background:
+radial-gradient(circle at 20% 120%,rgba(255,255,255,.08) 0 2px,transparent 3px) 0 0/120px 120px,
+radial-gradient(circle at 70% 130%,rgba(255,255,255,.06) 0 3px,transparent 4px) 0 0/180px 180px;
+animation:bubbles 20s linear infinite;
+opacity:.8;z-index:-1}
+@keyframes bubbles{from{transform:translateY(0)}to{transform:translateY(-220px)}}
+section,header,.info-card,.dica-card,.equipe-card{
+animation:fadeUp .8s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.info-card,.dica-card,.equipe-card{position:relative;overflow:hidden}
+.info-card::after,.dica-card::after,.equipe-card::after{
+content:"";position:absolute;top:-150%;left:-50%;width:60%;height:300%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);
+transform:rotate(25deg);transition:.8s}
+.info-card:hover::after,.dica-card:hover::after,.equipe-card:hover::after{left:120%}
+
+
+.bubbles{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.bubbles span{position:absolute;bottom:-120px;left:calc(var(--i)*4%);width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.6);box-shadow:0 0 8px rgba(255,255,255,.3);animation:subir calc(28s/(var(--i)/10)) linear infinite}
+.bubbles span:nth-child(3n){width:16px;height:16px}.bubbles span:nth-child(5n){width:22px;height:22px}
+@keyframes subir{0%{transform:translateY(0) translateX(0);opacity:0}10%{opacity:.5}50%{transform:translateY(-50vh) translateX(25px)}100%{transform:translateY(-120vh) translateX(-35px);opacity:0}}
+main,header,section,nav,.container{position:relative;z-index:2}
+
+
+.fish{position:fixed;font-size:32px;pointer-events:none;z-index:1;opacity:.8;animation:swim linear infinite}
+.f1{top:20%;left:-10%;animation-duration:22s}
+.f2{top:55%;left:110%;animation-name:swim2;animation-duration:28s}
+.f3{top:75%;left:-15%;animation-duration:35s}
+@keyframes swim{from{transform:translateX(0)}to{transform:translateX(120vw)}}
+@keyframes swim2{from{transform:translateX(0) scaleX(-1)}to{transform:translateX(-120vw) scaleX(-1)}}
+
+
+.shark{position:fixed;font-size:60px;pointer-events:none;z-index:1;opacity:.9}
+.s1{top:12%;left:-15%;animation:sharkR 32s linear infinite}
+.s2{top:68%;left:115%;animation:sharkL 40s linear infinite}
+.glow{filter:drop-shadow(0 0 8px #7df9ff) drop-shadow(0 0 18px #7df9ff)}
+@keyframes sharkR{from{transform:translateX(0)}to{transform:translateX(130vw)}}
+@keyframes sharkL{from{transform:translateX(0) scaleX(-1)}to{transform:translateX(-130vw) scaleX(-1)}}
+</style>
 </head>
 <body>
 
@@ -541,6 +582,24 @@
         document.getElementById('curiosidade-overlay').addEventListener('click', (e) => { if (e.target.id === 'curiosidade-overlay') fecharOverlay('curiosidade-overlay'); });
         document.getElementById('gibi-overlay').addEventListener('click', (e) => { if (e.target.id === 'gibi-overlay') fecharOverlay('gibi-overlay'); });
         document.getElementById('video-overlay').addEventListener('click', (e) => { if (e.target.id === 'video-overlay') fecharOverlay('video-overlay'); });
-    </script>
+    
+document.addEventListener('DOMContentLoaded',()=>{
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.animate([{opacity:0,transform:'translateY(25px)'},{opacity:1,transform:'translateY(0)'}],{duration:700,fill:'forwards'});obs.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('section,.info-card,.dica-card,.equipe-card').forEach(el=>obs.observe(el));
+});
+
+</script>
+<div class="bubbles"><span style="--i:11"></span><span style="--i:18"></span><span style="--i:25"></span><span style="--i:14"></span><span style="--i:22"></span><span style="--i:9"></span><span style="--i:27"></span><span style="--i:16"></span><span style="--i:30"></span><span style="--i:12"></span><span style="--i:21"></span><span style="--i:15"></span><span style="--i:24"></span><span style="--i:19"></span><span style="--i:28"></span><span style="--i:13"></span><span style="--i:26"></span><span style="--i:17"></span><span style="--i:23"></span><span style="--i:10"></span></div>
+
+<div class="fish f1">🐟</div>
+<div class="fish f2">🐠</div>
+<div class="fish f3">🐡</div>
+
+
+<div class="shark s1">🦈</div>
+<div class="shark s2">🦈</div>
+<div class="fish f1 glow">🐠</div>
+<div class="fish f2 glow">🐟</div>
+<div class="fish f3 glow">🐡</div>
 </body>
 </html>
