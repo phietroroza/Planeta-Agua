@@ -461,6 +461,7 @@ main,header,section,nav,.container{position:relative;z-index:2}
                 card.innerHTML = `<div class="equipe-header">${equipe.nome}</div>`;
                 grid.appendChild(card);
             });
+            container.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         function mostrarParticipantes(equipaId) {
