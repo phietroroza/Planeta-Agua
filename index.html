@@ -240,7 +240,7 @@ main,header,section,nav,.container{position:relative;z-index:2}
             </div>
         </section>
                 <div id="curiosidade-overlay" class="content-overlay"><div class="overlay-card"><button class="close-btn" onclick="fecharOverlay('curiosidade-overlay')">&times;</button><div id="curiosidade-detalhe" class="overlay-content"></div></div></div>
-        <div id="gibi-overlay" class="content-overlay"><div class="overlay-card"><button class="close-btn" onclick="fecharOverlay('gibi-overlay')">&times;</button><h2 id="gibi-titulo" style="text-align:center; color:var(--secondary); margin-bottom:25px;"></h2><img id="pagina" src="" style="width:100%; max-width:600px; display:block; margin:20px auto; border-radius:8px;"><p id="contador" style="text-align:center; font-weight:600;"></p><div style="display:flex; justify-content:center; gap:1rem; margin-top:25px;"><button class="btn" onclick="anterior()" data-key="anterior">← Anterior</button><button class="btn" onclick="proxima()" data-key="proxima">Próxima →</button></div></div></div>
+        <div id="gibi-overlay" class="content-overlay"><div class="overlay-card"><button class="close-btn" onclick="fecharOverlay('gibi-overlay')">&times;</button><h2 id="gibi-titulo" style="text-align:center; color:var(--secondary); margin-bottom:25px;"></h2><img id="pagina" src="" style="width:100%; max-width:600px; display:block; margin:20px auto; border-radius:8px;" onerror="this.style.display='none'; document.getElementById('img-erro').style.display='block';"><p id="img-erro" style="display:none; text-align:center; color:#ef476f; margin:20px 0;">Arquivo de imagem não encontrado. Coloque o arquivo na mesma pasta do site.</p><p id="contador" style="text-align:center; font-weight:600;"></p><div style="display:flex; justify-content:center; gap:1rem; margin-top:25px;"><button class="btn" onclick="anterior()" data-key="anterior">← Anterior</button><button class="btn" onclick="proxima()" data-key="proxima">Próxima →</button></div></div></div>
         <div id="video-overlay" class="content-overlay"><div class="overlay-card"><button class="close-btn" onclick="fecharOverlay('video-overlay')">&times;</button><h2 id="video-titulo" style="text-align:center; color:var(--secondary); margin-bottom:25px;"></h2><video id="video-player" width="100%" controls style="border-radius:8px;"><source src="" type="video/mp4"></video></div></div>
 
         <section id="trabalhos">
@@ -254,6 +254,11 @@ main,header,section,nav,.container{position:relative;z-index:2}
                 <div class="info-card" onclick="mostrarListaEquipes('stopmotion')">
                     <i class="fas fa-video"></i><h3 data-key="stop_tit">Stop Motion</h3>
                     <p data-key="stop_desc">Assista aos vídeos das 8 equipes</p>
+                    <span class="click-hint" data-key="clique">Clique para ver →</span>
+                </div>
+                <div class="info-card" onclick="mostrarListaEquipes('terrario')">
+                    <i class="fas fa-seedling"></i><h3 data-key="terrario_tit">Terrário</h3>
+                    <p data-key="terrario_desc">Veja as 8 equipes e seus terrários</p>
                     <span class="click-hint" data-key="clique">Clique para ver →</span>
                 </div>
             </div>
@@ -349,6 +354,38 @@ main,header,section,nav,.container{position:relative;z-index:2}
                     { id: 7, nome: "Equipe 7", participantes: ["Ana Beatriz Chary Lucas", "Nicole Horn da Silva ", "Victor Henrique", "Kayk Pereira Gonçalves da Silva", "Yasmin de Oliveira"], totalPaginas: 1 },
                     { id: 8, nome: "Equipo 8", participantes: ["Nombre S8-1", "Nombre S8-2", "Nombre S8-3", "Nombre S8-4"], totalPaginas: 1 }
                 ]
+            },
+            terrario: {
+                pt: [
+                    { id: 1, nome: "Equipe 1", participantes: ["Nome T1-1", "Nome T1-2", "Nome T1-3"], totalPaginas: 1 },
+                    { id: 2, nome: "Equipe 2", participantes: ["Nome T2-1", "Nome T2-2", "Nome T2-3"], totalPaginas: 1 },
+                    { id: 3, nome: "Equipe 3", participantes: ["Nome T3-1", "Nome T3-2"], totalPaginas: 1 },
+                    { id: 4, nome: "Equipe 4", participantes: ["Nome T4-1", "Nome T4-2"], totalPaginas: 1 },
+                    { id: 5, nome: "Equipe 5", participantes: ["Nome T5-1", "Nome T5-2", "Nome T5-3"], totalPaginas: 1 },
+                    { id: 6, nome: "Equipe 6", participantes: ["Nome T6-1", "Nome T6-2"], totalPaginas: 1 },
+                    { id: 7, nome: "Equipe 7", participantes: ["Nome T7-1", "Nome T7-2", "Nome T7-3", "Nome T7-4"], totalPaginas: 1 },
+                    { id: 8, nome: "Equipe 8", participantes: ["Nome T8-1", "Nome T8-2", "Nome T8-3"], totalPaginas: 1 }
+                ],
+                en: [
+                    { id: 1, nome: "Team 1", participantes: ["Name T1-1", "Name T1-2", "Name T1-3"], totalPaginas: 1 },
+                    { id: 2, nome: "Team 2", participantes: ["Name T2-1", "Name T2-2", "Name T2-3"], totalPaginas: 1 },
+                    { id: 3, nome: "Team 3", participantes: ["Name T3-1", "Name T3-2"], totalPaginas: 1 },
+                    { id: 4, nome: "Team 4", participantes: ["Name T4-1", "Name T4-2"], totalPaginas: 1 },
+                    { id: 5, nome: "Team 5", participantes: ["Name T5-1", "Name T5-2", "Name T5-3"], totalPaginas: 1 },
+                    { id: 6, nome: "Team 6", participantes: ["Name T6-1", "Name T6-2"], totalPaginas: 1 },
+                    { id: 7, nome: "Team 7", participantes: ["Name T7-1", "Name T7-2", "Name T7-3", "Name T7-4"], totalPaginas: 1 },
+                    { id: 8, nome: "Team 8", participantes: ["Name T8-1", "Name T8-2", "Name T8-3"], totalPaginas: 1 }
+                ],
+                es: [
+                    { id: 1, nome: "Equipo 1", participantes: ["Nombre T1-1", "Nombre T1-2", "Nombre T1-3"], totalPaginas: 1 },
+                    { id: 2, nome: "Equipo 2", participantes: ["Nombre T2-1", "Nombre T2-2", "Nombre T2-3"], totalPaginas: 1 },
+                    { id: 3, nome: "Equipo 3", participantes: ["Nombre T3-1", "Nombre T3-2"], totalPaginas: 1 },
+                    { id: 4, nome: "Equipo 4", participantes: ["Nombre T4-1", "Nombre T4-2"], totalPaginas: 1 },
+                    { id: 5, nome: "Equipo 5", participantes: ["Nombre T5-1", "Nombre T5-2", "Nombre T5-3"], totalPaginas: 1 },
+                    { id: 6, nome: "Equipo 6", participantes: ["Nombre T6-1", "Nombre T6-2"], totalPaginas: 1 },
+                    { id: 7, nome: "Equipo 7", participantes: ["Nombre T7-1", "Nombre T7-2", "Nombre T7-3", "Nombre T7-4"], totalPaginas: 1 },
+                    { id: 8, nome: "Equipo 8", participantes: ["Nombre T8-1", "Nombre T8-2", "Nombre T8-3"], totalPaginas: 1 }
+                ]
             }
         };
 
@@ -402,9 +439,19 @@ main,header,section,nav,.container{position:relative;z-index:2}
             const idioma = getIdiomaAtual();
             const dados = equipesData[tipo][idioma];
             const container = document.getElementById('lista-equipes-container');
-            let titulo = tipo === 'gibi'? 'Gibi - Escolha uma Equipe' : 'Stop Motion - Escolha uma Equipe';
-            if(idioma === 'en') titulo = tipo === 'gibi'? 'Comic - Choose a Team' : 'Stop Motion - Choose a Team';
-            if(idioma === 'es') titulo = tipo === 'gibi'? 'Cómic - Elige un Equipo' : 'Stop Motion - Elige un Equipo';
+            let titulo = 'Terrário - Escolha uma Equipe';
+            if (tipo === 'gibi') titulo = 'Gibi - Escolha uma Equipe';
+            else if (tipo === 'stopmotion') titulo = 'Stop Motion - Escolha uma Equipe';
+            if (idioma === 'en') {
+                titulo = 'Terrarium - Choose a Team';
+                if (tipo === 'gibi') titulo = 'Comic - Choose a Team';
+                else if (tipo === 'stopmotion') titulo = 'Stop Motion - Choose a Team';
+            }
+            if (idioma === 'es') {
+                titulo = 'Terrario - Elige un Equipo';
+                if (tipo === 'gibi') titulo = 'Cómic - Elige un Equipo';
+                else if (tipo === 'stopmotion') titulo = 'Stop Motion - Elige un Equipo';
+            }
 
             container.innerHTML = `<h3 style="text-align:center; color:var(--secondary); font-size:2rem; margin-bottom:2rem;">${titulo}</h3><div class="equipes-grid" id="equipes-dinamicas"></div>`;
             const grid = document.getElementById('equipes-dinamicas');
@@ -436,33 +483,72 @@ main,header,section,nav,.container{position:relative;z-index:2}
 
         function abrirTrabalho() {
             fecharOverlay('curiosidade-overlay');
-            if(tipoTrabalhoAtual === 'gibi') {
+            if (tipoTrabalhoAtual === 'gibi') {
                 abrirGibi(equipaAtual.id);
-            } else {
+            } else if (tipoTrabalhoAtual === 'stopmotion') {
                 abrirVideo(equipaAtual.id);
+            } else if (tipoTrabalhoAtual === 'terrario') {
+                abrirTerrario(equipaAtual.id);
             }
         }
 
         function abrirGibi(equipaId) {
-            const idioma = getIdiomaAtual(); equipaAtual = equipesData.gibi[idioma].find(e => e.id === equipaId); paginaAtual = 0;
-            const txt = idioma === 'en'? 'Comic - ' : idioma === 'es'? 'Cómic - ' : 'Gibi - ';
+            const idioma = getIdiomaAtual();
+            equipaAtual = equipesData.gibi[idioma].find(e => e.id === equipaId);
+            paginaAtual = 0;
+            const txt = idioma === 'en' ? 'Comic - ' : idioma === 'es' ? 'Cómic - ' : 'Gibi - ';
             document.getElementById('gibi-titulo').innerText = `${txt}${equipaAtual.nome}`;
-            document.getElementById('gibi-overlay').style.display = 'block'; atualizarGibi();
+            document.getElementById('gibi-overlay').style.display = 'block';
+            atualizarGibi();
         }
         function atualizarGibi() {
             const nomeArquivo = `gibi_p${paginaAtual + 1}equipe${equipaAtual.id}.png`;
-            document.getElementById("pagina").src = nomeArquivo;
+            const img = document.getElementById("pagina");
+            document.getElementById('img-erro').style.display = 'none';
+            img.style.display = 'block';
+            img.src = nomeArquivo;
             document.getElementById("contador").innerText = `${paginaAtual + 1} / ${equipaAtual.totalPaginas}`;
         }
-        function proxima() { if (paginaAtual < equipaAtual.totalPaginas - 1) { paginaAtual++; atualizarGibi(); } }
-        function anterior() { if (paginaAtual > 0) { paginaAtual--; atualizarGibi(); } }
+        function proxima() {
+            if (paginaAtual < equipaAtual.totalPaginas - 1) {
+                paginaAtual++;
+                if (tipoTrabalhoAtual === 'terrario') atualizarTerrario();
+                else atualizarGibi();
+            }
+        }
+        function anterior() {
+            if (paginaAtual > 0) {
+                paginaAtual--;
+                if (tipoTrabalhoAtual === 'terrario') atualizarTerrario();
+                else atualizarGibi();
+            }
+        }
 
         function abrirVideo(equipaId) {
-            const idioma = getIdiomaAtual(); equipaAtual = equipesData.stopmotion[idioma].find(e => e.id === equipaId);
-            const txt = idioma === 'en'? ' - Stop Motion' : idioma === 'es'? ' - Stop Motion' : ' - Stop Motion';
+            const idioma = getIdiomaAtual();
+            equipaAtual = equipesData.stopmotion[idioma].find(e => e.id === equipaId);
+            const txt = idioma === 'en' ? ' - Stop Motion' : idioma === 'es' ? ' - Stop Motion' : ' - Stop Motion';
             document.getElementById('video-titulo').innerText = `${equipaAtual.nome}${txt}`;
             document.getElementById('video-player').src = `stopmotionequipe${equipaAtual.id}.mp4`;
             document.getElementById('video-overlay').style.display = 'block';
+        }
+
+        function abrirTerrario(equipaId) {
+            const idioma = getIdiomaAtual();
+            equipaAtual = equipesData.terrario[idioma].find(e => e.id === equipaId);
+            paginaAtual = 0;
+            const txt = idioma === 'en' ? 'Terrarium - ' : idioma === 'es' ? 'Terrario - ' : 'Terrário - ';
+            document.getElementById('gibi-titulo').innerText = `${txt}${equipaAtual.nome}`;
+            document.getElementById('gibi-overlay').style.display = 'block';
+            atualizarTerrario();
+        }
+        function atualizarTerrario() {
+            const nomeArquivo = `terrario_p${paginaAtual + 1}equipe${equipaAtual.id}.png`;
+            const img = document.getElementById("pagina");
+            document.getElementById('img-erro').style.display = 'none';
+            img.style.display = 'block';
+            img.src = nomeArquivo;
+            document.getElementById("contador").innerText = `${paginaAtual + 1} / ${equipaAtual.totalPaginas}`;
         }
 
         const navLinks = document.querySelectorAll('.nav-link'); const sections = document.querySelectorAll('section');
@@ -512,7 +598,7 @@ main,header,section,nav,.container{position:relative;z-index:2}
             pt: {
                 inicio: "Início", curiosidades: "Curiosidades", trabalhos: "Trabalhos", dicas: "Dicas", quiz: "Quiz", titulo: "O PROJETO E A ÁGUA",
                 idioma: "Idioma", cor_tema: "Cor do Tema", fatos_titulo: "Fatos e Curiosidades", trabalhos_titulo: "Nossos Trabalhos", dicas_titulo: "Dicas Práticas", quiz_titulo: "Quiz da Água",
-                gibi_tit: "Gibi", stop_tit: "Stop Motion", gibi_desc: "Veja as 8 equipes e seus gibis sobre a água", stop_desc: "Assista aos vídeos das 8 equipes",
+                gibi_tit: "Gibi", stop_tit: "Stop Motion", terrario_tit: "Terrário", gibi_desc: "Veja as 8 equipes e seus gibis sobre a água", stop_desc: "Assista aos vídeos das 8 equipes", terrario_desc: "Veja as 8 equipes e seus terrários",
                 clique: "Clique para ver →", anterior: "← Anterior", proxima: "Próxima →",
                 ciclo_tit: "O Ciclo da Água", consumo_tit: "Consumo Industrial", conta_tit: "Contaminação",
                 ciclo_resumo: "A água percorre um ciclo contínuo na natureza...", consumo_resumo: "A indústria consome aproximadamente 19% da água doce...", conta_resumo: "2 bilhões de pessoas vivem em regiões com escassez severa...",
@@ -528,7 +614,7 @@ main,header,section,nav,.container{position:relative;z-index:2}
             en: {
                 inicio: "Home", curiosidades: "Curiosities", trabalhos: "Projects", dicas: "Tips", quiz: "Quiz", titulo: "THE PROJECT AND WATER",
                 idioma: "Language", cor_tema: "Theme Color", fatos_titulo: "Facts and Curiosities", trabalhos_titulo: "Our Projects", dicas_titulo: "Practical Tips", quiz_titulo: "Water Quiz",
-                gibi_tit: "Comic", stop_tit: "Stop Motion", gibi_desc: "See the 8 teams and their water comics", stop_desc: "Watch the 8 teams' videos",
+                gibi_tit: "Comic", stop_tit: "Stop Motion", terrario_tit: "Terrarium", gibi_desc: "See the 8 teams and their water comics", stop_desc: "Watch the 8 teams' videos", terrario_desc: "See the 8 teams and their terrariums",
                 clique: "Click to see →", anterior: "← Previous", proxima: "Next →",
                 ciclo_tit: "The Water Cycle", consumo_tit: "Industrial Consumption", conta_tit: "Contamination",
                 ciclo_resumo: "Water goes through a continuous cycle in nature...", consumo_resumo: "Industry consumes approximately 19% of fresh water...", conta_resumo: "2 billion people live in regions with severe water scarcity...",
@@ -544,7 +630,7 @@ main,header,section,nav,.container{position:relative;z-index:2}
             es: {
                 inicio: "Inicio", curiosidades: "Curiosidades", trabalhos: "Trabajos", dicas: "Consejos", quiz: "Cuestionario", titulo: "EL PROYECTO Y EL AGUA",
                 idioma: "Idioma", cor_tema: "Color del Tema", fatos_titulo: "Datos y Curiosidades", trabalhos_titulo: "Nuestros Trabajos", dicas_titulo: "Consejos Prácticos", quiz_titulo: "Cuestionario del Agua",
-                gibi_tit: "Cómic", stop_tit: "Stop Motion", gibi_desc: "Mira los 8 equipos y sus cómics sobre el agua", stop_desc: "Mira los videos de los 8 equipos",
+                gibi_tit: "Cómic", stop_tit: "Stop Motion", terrario_tit: "Terrario", gibi_desc: "Mira los 8 equipos y sus cómics sobre el agua", stop_desc: "Mira los videos de los 8 equipos", terrario_desc: "Mira los 8 equipos y sus terrarios",
                 clique: "Haz clic para ver →", anterior: "← Anterior", proxima: "Siguiente →",
                 ciclo_tit: "El Ciclo del Agua", consumo_tit: "Consumo Industrial", conta_tit: "Contaminación",
                 ciclo_resumo: "El agua recorre un ciclo continuo en la naturaleza...", consumo_resumo: "La industria consume aproximadamente el 19% del agua dulce...", conta_resumo: "2 mil millones de personas viven en regiones con escasez severa...",
