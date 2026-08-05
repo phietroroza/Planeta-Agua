@@ -147,8 +147,7 @@ main,header,section,nav,.container{position:relative;z-index:2}
             <div class="logo-circulo"></div>
             <p data-key="titulo">O PROJETO E A ÁGUA</p>
         </header>
-
-        <section id="curiosidades" class="active">
+                <section id="curiosidades" class="active">
             <h2 class="section-title" data-key="fatos_titulo">Fatos e Curiosidades</h2>
             <div class="grid-container">
                 <div class="info-card" onclick="abrirCuriosidade('ciclo')"><h3>🌊 <span data-key="ciclo_tit">O Ciclo da Água</span></h3><p data-key="ciclo_resumo">A água percorre um ciclo contínuo na natureza...</p><span class="click-hint" data-key="clique">Clique para saber mais →</span></div>
@@ -221,7 +220,7 @@ main,header,section,nav,.container{position:relative;z-index:2}
                     { id: 8, nome: "Team 8", participantes: ["Emilly Cézar Zampier", "Nicolas slominisk Mello", "Lyandra Garcia"], totalPaginas: 2 },
                     { id: 9, nome: "Team 9", participantes: ["Student 9-1", "Student 9-2"], totalPaginas: 5 },
                     { id: 10, nome: "Team 10", participantes: ["Henrique Machado Brisola", "Gabriel Machado"], totalPaginas: 10 },
-                    { id: 11, nome: "Team 11", participantes:  ["Hallana Oliveira ", "Luana Marcondes ", "Davi Peres"], totalPaginas: 4 },
+                    { id: 11, nome: "Team 11", participantes: ["Hallana Oliveira ", "Luana Marcondes ", "Davi Peres"], totalPaginas: 4 },
                     { id: 12, nome: "Team 12", participantes: ["Student 12-1", "Student 12-2"], totalPaginas: 3 },
                     { id: 13, nome: "Team 13", participantes: ["Student 13-1", "Student 13-2"], totalPaginas: 6 },
                     { id: 14, nome: "Team 14", participantes: ["Student 14-1", "Student 14-2"], totalPaginas: 2 },
@@ -298,10 +297,58 @@ main,header,section,nav,.container{position:relative;z-index:2}
                     { id: 15, nome: "Equipo 15", participantes: ["Alumno 15-1", "Alumno 15-2"], totalPaginas: 1 }
                 ]
             },
-            terrario: {
-                pt: Array.from({length:15}, (_,i)=>({id:i+1,nome:`Equipe ${i+1}`,participantes:[`Aluno ${i+1}A`,`Aluno ${i+1}B`],totalPaginas:1})),
-                en: Array.from({length:15}, (_,i)=>({id:i+1,nome:`Team ${i+1}`,participantes:[`Student ${i+1}A`,`Student ${i+1}B`],totalPaginas:1})),
-                es: Array.from({length:15}, (_,i)=>({id:i+1,nome:`Equipo ${i+1}`,participantes:[`Alumno ${i+1}A`,`Alumno ${i+1}B`],totalPaginas:1}))
+            terrario: { // AGORA IGUAL AO GIBI/STOPMOTION
+                pt: [
+                    { id: 1, nome: "Equipe 1", participantes: ["Phietro Emanuel", "Luiz Fernando", "Vitor Andrioli", "Anderson", "João Victor Boamorte"], totalPaginas: 10 },
+                    { id: 2, nome: "Equipe 2", participantes: ["Larah Prado", "João Antônio", "Gabrieli Oshiro"], totalPaginas: 8 },
+                    { id: 3, nome: "Equipe 3", participantes: ["Juan", "Eduardo", "Raphael"], totalPaginas: 6 },
+                    { id: 4, nome: "Equipe 4", participantes: ["Nicole Cristine Castorino", "Ticiane"], totalPaginas: 5 },
+                    { id: 5, nome: "Equipe 5", participantes: ["Ana Clara", "Júlia"], totalPaginas: 9 },
+                    { id: 6, nome: "Equipe 6", participantes: ["Larissa Buture"], totalPaginas: 7 },
+                    { id: 7, nome: "Equipe 7", participantes: ["Ana Beatriz Chary Lucas", "Nicole Horn da Silva", "Victor Henrique", "Kayk Pereira Gonçalves da Silva", "Yasmin de Oliveira"], totalPaginas: 8 },
+                    { id: 8, nome: "Equipe 8", participantes: ["Emilly Cézar Zampier", "Nicolas slominisk Mello", "Lyandra Garcia"], totalPaginas: 6 },
+                    { id: 9, nome: "Equipe 9", participantes: ["Aluno 9-1", "Aluno 9-2"], totalPaginas: 5 },
+                    { id: 10, nome: "Equipe 10", participantes: ["Henrique Machado Brisola", "Gabriel Machado"], totalPaginas: 10 },
+                    { id: 11, nome: "Equipe 11", participantes: ["Hallana Oliveira ", "Luana Marcondes ", "Davi Peres"], totalPaginas: 4 },
+                    { id: 12, nome: "Equipe 12", participantes: ["Aluno 12-1", "Aluno 12-2"], totalPaginas: 3 },
+                    { id: 13, nome: "Equipe 13", participantes: ["Aluno 13-1", "Aluno 13-2"], totalPaginas: 6 },
+                    { id: 14, nome: "Equipe 14", participantes: ["Aluno 14-1", "Aluno 14-2"], totalPaginas: 2 },
+                    { id: 15, nome: "Equipe 15", participantes: ["Aluno 15-1", "Aluno 15-2"], totalPaginas: 8 }
+                ],
+                en: [
+                    { id: 1, nome: "Team 1", participantes: ["Phietro Emanuel", "Luiz Fernando", "Vitor Andrioli", "Anderson", "João Victor Boamorte"], totalPaginas: 10 },
+                    { id: 2, nome: "Team 2", participantes: ["Larah Prado", "João Antônio", "Gabrieli Oshiro"], totalPaginas: 8 },
+                    { id: 3, nome: "Team 3", participantes: ["Juan", "Eduardo", "Raphael"], totalPaginas: 6 },
+                    { id: 4, nome: "Team 4", participantes: ["Nicole Cristine Castorino", "Ticiane"], totalPaginas: 5 },
+                    { id: 5, nome: "Team 5", participantes: ["Ana Clara", "Júlia"], totalPaginas: 9 },
+                    { id: 6, nome: "Team 6", participantes: ["Larissa Buture"], totalPaginas: 7 },
+                    { id: 7, nome: "Team 7", participantes: ["Ana Beatriz Chary Lucas", "Nicole Horn da Silva", "Victor Henrique", "Kayk Pereira Gonçalves da Silva", "Yasmin de Oliveira"], totalPaginas: 8 },
+                    { id: 8, nome: "Team 8", participantes: ["Emilly Cézar Zampier", "Nicolas slominisk Mello", "Lyandra Garcia"], totalPaginas: 6 },
+                    { id: 9, nome: "Team 9", participantes: ["Student 9-1", "Student 9-2"], totalPaginas: 5 },
+                    { id: 10, nome: "Team 10", participantes: ["Henrique Machado Brisola", "Gabriel Machado"], totalPaginas: 10 },
+                    { id: 11, nome: "Team 11", participantes: ["Hallana Oliveira ", "Luana Marcondes ", "Davi Peres"], totalPaginas: 4 },
+                    { id: 12, nome: "Team 12", participantes: ["Student 12-1", "Student 12-2"], totalPaginas: 3 },
+                    { id: 13, nome: "Team 13", participantes: ["Student 13-1", "Student 13-2"], totalPaginas: 6 },
+                    { id: 14, nome: "Team 14", participantes: ["Student 14-1", "Student 14-2"], totalPaginas: 2 },
+                    { id: 15, nome: "Team 15", participantes: ["Student 15-1", "Student 15-2"], totalPaginas: 8 }
+                ],
+                es: [
+                    { id: 1, nome: "Equipo 1", participantes: ["Phietro Emanuel", "Luiz Fernando", "Vitor Andrioli", "Anderson", "João Victor Boamorte"], totalPaginas: 10 },
+                    { id: 2, nome: "Equipo 2", participantes: ["Larah Prado", "João Antônio", "Gabrieli Oshiro"], totalPaginas: 8 },
+                    { id: 3, nome: "Equipo 3", participantes: ["Juan", "Eduardo", "Raphael"], totalPaginas: 6 },
+                    { id: 4, nome: "Equipo 4", participantes: ["Nicole Cristine Castorino", "Ticiane"], totalPaginas: 5 },
+                    { id: 5, nome: "Equipo 5", participantes: ["Ana Clara", "Júlia"], totalPaginas: 9 },
+                    { id: 6, nome: "Equipo 6", participantes: ["Larissa Buture"], totalPaginas: 7 },
+                    { id: 7, nome: "Equipo 7", participantes: ["Ana Beatriz Chary Lucas", "Nicole Horn da Silva", "Victor Henrique", "Kayk Pereira Gonçalves da Silva", "Yasmin de Oliveira"], totalPaginas: 8 },
+                    { id: 8, nome: "Equipo 8", participantes: ["Emilly Cézar Zampier", "Nicolas slominisk Mello", "Lyandra Garcia"], totalPaginas: 6 },
+                    { id: 9, nome: "Equipo 9", participantes: ["Alumno 9-1", "Alumno 9-2"], totalPaginas: 5 },
+                    { id: 10, nome: "Equipo 10", participantes: ["Alumno 10-1", "Alumno 10-2"], totalPaginas: 10 },
+                    { id: 11, nome: "Equipo 11", participantes: ["Hallana Oliveira ", "Luana Marcondes ", "Davi Peres"], totalPaginas: 4 },
+                    { id: 12, nome: "Equipo 12", participantes: ["Alumno 12-1", "Alumno 12-2"], totalPaginas: 3 },
+                    { id: 13, nome: "Equipo 13", participantes: ["Alumno 13-1", "Alumno 13-2"], totalPaginas: 6 },
+                    { id: 14, nome: "Equipo 14", participantes: ["Alumno 14-1", "Alumno 14-2"], totalPaginas: 2 },
+                    { id: 15, nome: "Equipo 15", participantes: ["Alumno 15-1", "Alumno 15-2"], totalPaginas: 8 }
+                ]
             }
         };
       const quizData = {
@@ -351,7 +398,7 @@ main,header,section,nav,.container{position:relative;z-index:2}
             fecharOverlay('curiosidade-overlay');
             if (tipoTrabalhoAtual === 'gibi') abrirGibi(equipaAtual.id);
             else if (tipoTrabalhoAtual === 'stopmotion') abrirVideo(equipaAtual.id);
-            else if (tipoTrabalhoAtual === 'terrario') abrirTerrario(equipaAtual.id);
+            else if (tipoTrabalhoAtual === 'terrario') abrirTerrario(equipaAtual.id); // AGORA USA O MESMO SISTEMA
         }
 
         function abrirGibi(equipaId) {
@@ -397,7 +444,7 @@ main,header,section,nav,.container{position:relative;z-index:2}
             document.body.style.overflow = 'hidden';
         }
 
-        function abrirTerrario(equipaId) {
+        function abrirTerrario(equipaId) { // AGORA IGUAL AO GIBI
             const idioma = getIdiomaAtual();
             equipaAtual = equipesData.terrario[idioma].find(e => e.id === equipaId);
             paginaAtual = 0;
@@ -407,7 +454,7 @@ main,header,section,nav,.container{position:relative;z-index:2}
             document.body.style.overflow = 'hidden';
             atualizarTerrario();
         }
-        function atualizarTerrario() {
+        function atualizarTerrario() { // AGORA IGUAL AO GIBI
             const nomeArquivo = `terrariop${paginaAtual + 1}equipe${equipaAtual.id}.png`;
             const img = document.getElementById("pagina");
             document.getElementById('img-erro').style.display = 'none';
@@ -415,8 +462,7 @@ main,header,section,nav,.container{position:relative;z-index:2}
             img.src = nomeArquivo;
             document.getElementById("contador").innerText = `${paginaAtual + 1} / ${equipaAtual.totalPaginas}`;
         }
-
-        const navLinks = document.querySelectorAll('.nav-link'); const sections = document.querySelectorAll('section');
+              const navLinks = document.querySelectorAll('.nav-link'); const sections = document.querySelectorAll('section');
         navLinks.forEach(link => { link.addEventListener('click', (e) => {
             e.preventDefault(); const sectionId = link.getAttribute('data-section');
             navLinks.forEach(l => l.classList.remove('active')); link.classList.add('active');
@@ -465,7 +511,7 @@ main,header,section,nav,.container{position:relative;z-index:2}
         const traducoes = {
             pt: { inicio: "Início", curiosidades: "Curiosidades", trabalhos: "Trabalhos", dicas: "Dicas", quiz: "Quiz", titulo: "O PROJETO E A ÁGUA", idioma: "Idioma", cor_tema: "Cor do Tema", fatos_titulo: "Fatos e Curiosidades", trabalhos_titulo: "Nossos Trabalhos", dicas_titulo: "Dicas Práticas", quiz_titulo: "Quiz da Água", gibi_tit: "Gibi", stop_tit: "Stop Motion", terrario_tit: "Terrário", gibi_desc: "Veja as 15 equipes e seus gibis sobre a água", stop_desc: "Assista aos vídeos das 15 equipes", terrario_desc: "Veja as 15 equipes e seus terrários", clique: "Clique para ver →", anterior: "← Anterior", proxima: "Próxima →", ciclo_tit: "O Ciclo da Água", consumo_tit: "Consumo Industrial", conta_tit: "Contaminação", ciclo_resumo: "A água percorre um ciclo contínuo na natureza...", consumo_resumo: "A indústria consome aproximadamente 19% da água doce...", conta_resumo: "2 bilhões de pessoas vivem em regiões com escassez severa...", ciclo_txt: "A água circula continuamente através de evaporação, condensação e precipitação.", consumo_txt: "A agricultura consome 70% de toda a água doce do mundo.", conta_txt: "80% dos rios globais estão poluídos. 2 bilhões de pessoas vivem com escassez severa.", dica1_tit: "Banhos Rápidos", dica1_txt: "Reduzir o tempo de banho economiza até 100 litros por dia.", dica2_tit: "Conserte Vazamentos", dica2_txt: "Um vazamento pequeno desperdiça até 46 mil litros por ano.", dica3_tit: "Reutilize Água", dica3_txt: "Aproveite a água da chuva para regar plantas.", quiz_intro: "Teste seus conhecimentos com 10 perguntas!", btn_comecar: "Começar Quiz", pergunta: "Pergunta", de: "de", parabens: "Parabéns!", btn_tentar: "Tentar Novamente", footer: "Gestão Sustentável da Água" },
             en: { inicio: "Home", curiosidades: "Curiosities", trabalhos: "Projects", dicas: "Tips", quiz: "Quiz", titulo: "THE PROJECT AND WATER", idioma: "Language", cor_tema: "Theme Color", fatos_titulo: "Facts and Curiosities", trabalhos_titulo: "Our Projects", dicas_titulo: "Practical Tips", quiz_titulo: "Water Quiz", gibi_tit: "Comic", stop_tit: "Stop Motion", terrario_tit: "Terrarium", gibi_desc: "See the 15 teams and their water comics", stop_desc: "Watch the 15 teams' videos", terrario_desc: "See the 15 teams and their terrariums", clique: "Click to see →", anterior: "← Previous", proxima: "Next →", ciclo_tit: "The Water Cycle", consumo_tit: "Industrial Consumption", conta_tit: "Contamination", ciclo_resumo: "Water goes through a continuous cycle in nature...", consumo_resumo: "Industry consumes approximately 19% of fresh water...", conta_resumo: "2 billion people live in regions with severe water scarcity...", ciclo_txt: "Water circulates continuously through evaporation, condensation and precipitation.", consumo_txt: "Agriculture consumes 70% of all fresh water in the world.", conta_txt: "80% of the world's rivers are polluted. 2 billion people live with severe water scarcity.", dica1_tit: "Quick Showers", dica1_txt: "Reducing shower time saves up to 100 liters per day.", dica2_tit: "Fix Leaks", dica2_txt: "A small leak wastes up to 46 thousand liters per year.", dica3_tit: "Reuse Water", dica3_txt: "Use rainwater to water plants.", quiz_intro: "Test your knowledge with 10 questions!", btn_comecar: "Start Quiz", pergunta: "Question", de: "of", parabens: "Congratulations!", btn_tentar: "Try Again", footer: "Sustainable Water Management" },
-            es: { inicio: "Inicio", curiosidades: "Curiosidades", trabalhos: "Trabajos", dicas: "Consejos", quiz: "Cuestionario", titulo: "EL PROYECTO Y EL AGUA", idioma: "Idioma", cor_tema: "Color del Tema", fatos_titulo: "Datos y Curiosidades", trabalhos_titulo: "Nuestros Trabajos", dicas_titulo: "Consejos Prácticos", quiz_titulo: "Cuestionario del Agua", gibi_tit: "Cómic", stop_tit: "Stop Motion", terrario_tit: "Terrario", gibi_desc: "Mira los 15 equipos y sus cómics sobre el agua", stop_desc: "Mira los videos de los 15 equipos", terrario_desc: "Mira los 15 equipos y sus terrarios", clique: "Haz clic para ver →", anterior: "← Anterior", proxima: "Siguiente →", ciclo_tit: "El Ciclo del Agua", consumo_tit: "Consumo Industrial", conta_tit: "Contaminación", ciclo_resumo: "El agua recorre un ciclo continuo en la naturaleza...", consumo_resumo: "La industria consume aproximadamente el 19% del agua dulce...", conta_resumo: "2 mil millones de personas viven en regiones con escasez severa...", ciclo_txt: "El agua circula continuamente a través de evaporación, condensación y precipitación.", consumo_txt: "La agricultura consume el 70% de toda el agua dulce del mundo.", conta_txt: "El 80% de los ríos del mundo están contaminados. 2 mil millones de personas viven con escasez severa.", dica1_tit: "Duchas Rápidas", dica1_txt: "Reducir el tiempo de ducha ahorra hasta 100 litros por día.", dica2_tit: "Repara Fugas", dica2_txt: "Una pequeña fuga desperdicia hasta 46 mil litros por año.", dica3_tit: "Reutiliza Agua", dica3_txt: "Aprovecha el agua de lluvia para regar plantas.", quiz_intro: "¡Pon a prueba tus conocimientos con 10 preguntas!", btn_comecar: "Comenzar Cuestionario", pergunta: "Pregunta", de: "de", parabens: "¡Felicidades!", btn_tentar: "Intentar de Nuevo", footer: "Gestión Sostenible del Agua" }
+            es: { inicio: "Inicio", curiosidades: "Curiosidades", trabajos: "Trabajos", dicas: "Consejos", quiz: "Cuestionario", titulo: "EL PROYECTO Y EL AGUA", idioma: "Idioma", cor_tema: "Color del Tema", fatos_titulo: "Datos y Curiosidades", trabalhos_titulo: "Nuestros Trabajos", dicas_titulo: "Consejos Prácticos", quiz_titulo: "Cuestionario del Agua", gibi_tit: "Cómic", stop_tit: "Stop Motion", terrario_tit: "Terrario", gibi_desc: "Mira los 15 equipos y sus cómics sobre el agua", stop_desc: "Mira los videos de los 15 equipos", terrario_desc: "Mira los 15 equipos y sus terrarios", clique: "Haz clic para ver →", anterior: "← Anterior", proxima: "Siguiente →", ciclo_tit: "El Ciclo del Agua", consumo_tit: "Consumo Industrial", conta_tit: "Contaminación", ciclo_resumo: "El agua recorre un ciclo continuo en la naturaleza...", consumo_resumo: "La industria consume aproximadamente el 19% del agua dulce...", conta_resumo: "2 mil millones de personas viven en regiones con escasez severa...", ciclo_txt: "El agua circula continuamente a través de evaporación, condensación y precipitación.", consumo_txt: "La agricultura consume el 70% de toda el agua dulce del mundo.", conta_txt: "El 80% de los ríos del mundo están contaminados. 2 mil millones de personas viven con escasez severa.", dica1_tit: "Duchas Rápidas", dica1_txt: "Reducir el tiempo de ducha ahorra hasta 100 litros por día.", dica2_tit: "Repara Fugas", dica2_txt: "Una pequeña fuga desperdicia hasta 46 mil litros por año.", dica3_tit: "Reutiliza Agua", dica3_txt: "Aprovecha el agua de lluvia para regar plantas.", quiz_intro: "¡Pon a prueba tus conocimientos con 10 preguntas!", btn_comecar: "Comenzar Cuestionario", pergunta: "Pregunta", de: "de", parabens: "¡Felicidades!", btn_tentar: "Intentar de Nuevo", footer: "Gestión Sostenible del Agua" }
         };
 
         function aplicarTraducao() {
@@ -480,7 +526,7 @@ main,header,section,nav,.container{position:relative;z-index:2}
                 mostrarListaEquipes(tipoTrabalhoAtual);
             }
         }
-function mostrarListaEquipes(tipo) {
+        function mostrarListaEquipes(tipo) {
             tipoTrabalhoAtual = tipo;
             const idioma = getIdiomaAtual();
             const dados = equipesData[tipo][idioma];
