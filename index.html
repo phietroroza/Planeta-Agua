@@ -145,7 +145,18 @@
         #overlay-equipes-card.tema-floresta .equipe-card { background: rgba(30, 58, 30, 0.8); border: 1px solid rgba(50,205,50,0.5); backdrop-filter: blur(3px); }
         #overlay-equipes-card.tema-floresta .equipe-card:hover { background: rgba(34, 139, 34, 0.8); border-color: #7CFC00; transform: translateY(-8px) scale(1.03); }
         @media (max-width: 768px) { #overlay-equipes-card .equipes-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } }
-    </style>
+    
+    /* ADIÇÕES MANUS */
+    .feature-container-manus { max-width: 1200px; margin: 20px auto; padding: 0 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; position: relative; z-index: 10; }
+    .card-manus { background: rgba(0, 51, 102, 0.8); border: 2px solid var(--secondary); border-radius: 15px; padding: 1.5rem; transition: 0.3s; }
+    .card-manus:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 191, 255, 0.4); }
+    .card-manus h3 { color: var(--secondary); margin-bottom: 10px; font-size: 1.2rem; }
+    .card-manus p { font-size: 1rem; color: #fff; line-height: 1.4; }
+    .btn-som-manus { position: fixed; bottom: 25px; right: 90px; width: 55px; height: 55px; border-radius: 50%; background: var(--secondary); color: var(--primary-dark); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; cursor: pointer; z-index: 2000; border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+    .btn-som-manus.ativo { animation: pulse-manus 2s infinite; }
+    @keyframes pulse-manus { 0% { box-shadow: 0 0 0 0 rgba(0, 191, 255, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(0, 191, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 191, 255, 0); } }
+    @media (max-width: 768px) { .feature-container-manus { padding: 0 20px; } .btn-som-manus { right: 20px; bottom: 90px; } }
+</style>
 </head>
 <body>
   <aside class="sidebar">
@@ -162,7 +173,7 @@
             <a href="#" class="nav-link" data-section="quiz"><i class="fas fa-question-circle"></i> <span data-key="quiz">Quiz</span></a>
         </nav>
     </aside>
-    <div class="config-btn" onclick="toggleConfig()"><i class="fas fa-ellipsis-vertical"></i></div>
+    <button id="som-btn" class="btn-som-manus" onclick="controleSom()"><i class="fas fa-volume-mute"></i></button><div class="config-btn" onclick="toggleConfig()"><i class="fas fa-ellipsis-vertical"></i></div>
     <div id="config-menu" class="config-menu">
         <h3><i class="fas fa-gear"></i> Configurações</h3>
         <div class="config-item">
@@ -182,6 +193,17 @@
             <div class="logo-circulo"></div>
             <p data-key="titulo">O PROJETO E A ÁGUA</p>
         </header>
+        <div class="feature-container-manus">
+            <div class="card-manus">
+                <h3><i class="fas fa-bullseye"></i> Missão do Dia</h3>
+                <p id="txt-missao">Economize água hoje!</p>
+            </div>
+            <div class="card-manus">
+                <h3><i class="fas fa-lightbulb"></i> Você Sabia?</h3>
+                <p id="txt-fato">A água é vida.</p>
+            </div>
+        </div>
+
 
         <section id="curiosidades" class="active">
             <h2 class="section-title" data-key="fatos_titulo">Fatos e Curiosidades</h2>
@@ -1002,6 +1024,41 @@
             aplicarTraducao();
             carregarItensAgua();
         };
+    </script>
+
+    <script>
+        const missoesD2 = ["Feche a torneira ao escovar os dentes!", "Tome banho de 5 minutos hoje.", "Não use mangueira para limpar a calçada.", "Junte a louça antes de lavar.", "Regue plantas de manhã cedo."];
+        const fatosD2 = ["Apenas 1% da água da Terra é potável.", "Uma calça jeans gasta 10 mil litros de água.", "O corpo humano é 70% água.", "Uma torneira pingando gasta 40L por dia.", "A água de hoje é a mesma dos dinossauros."];
+        
+        function initManus() {
+            const d = new Date();
+            document.getElementById('txt-missao').innerText = missoesD2[d.getDate() % missoesD2.length];
+            document.getElementById('txt-fato').innerText = fatosD2[Math.floor(Math.random() * fatosD2.length)];
+        }
+
+        let somAgua = new Audio('https://codeskulptor-demos.commondatastorage.googleapis.com/descent/background%20music.mp3');
+        somAgua.loop = true;
+        let tocandoAgora = false;
+
+        function controleSom() {
+            const btn = document.getElementById('som-btn');
+            const icon = btn.querySelector('i');
+            if(!tocandoAgora) {
+                somAgua.play().then(() => {
+                    icon.className = 'fas fa-volume-up';
+                    btn.classList.add('ativo');
+                    tocandoAgora = true;
+                }).catch(err => console.log("Erro som:", err));
+            } else {
+                somAgua.pause();
+                icon.className = 'fas fa-volume-mute';
+                btn.classList.remove('ativo');
+                tocandoAgora = false;
+            }
+        }
+        
+        // Rodar ao carregar
+        window.addEventListener('load', initManus);
     </script>
 </body>
 </html>
