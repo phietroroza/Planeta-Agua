@@ -195,6 +195,7 @@
     .aluno-card { min-height: 125px; padding: 1.1rem; border: 1px solid rgba(0,191,255,.35); border-radius: 12px; background: rgba(0,51,102,.68); cursor: pointer; transition: transform .2s, border-color .2s, background .2s; display: flex; flex-direction: column; justify-content: center; text-align: center; }
     .aluno-card:hover { transform: translateY(-4px); border-color: var(--secondary); background: rgba(0,90,145,.8); }
     .aluno-card h4 { margin: 0 0 .55rem; color: #fff; font-size: .98rem; line-height: 1.25; }
+    .aluno-card.aluno-completo h4 { color: #00bfff !important; }
     .aluno-card small { color: var(--secondary); opacity: .9; }
     .aluno-status { display: inline-block; margin-top: .4rem; color: #ffd166 !important; font-size: .76rem; }
     .aluno-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: .6rem; margin: 0 auto 1.5rem; position: relative; z-index: 2; }
@@ -1295,57 +1296,57 @@
     {
         "id": 7,
         "nome": "EDUARDO HENRIQUE CARNEIRO BORA",
-        "status": "",
+        "status": "Concluído",
         "itens": [
             {
-                "nome": "Item 1",
-                "agua": 0,
-                "unidade": "litros"
+                "nome": "👕 Camiseta",
+                "agua": 2700,
+                "unidade": "L"
             },
             {
-                "nome": "Item 2",
-                "agua": 0,
-                "unidade": "litros"
+                "nome": "👖 Calça",
+                "agua": 10000,
+                "unidade": "L"
             },
             {
-                "nome": "Item 3",
-                "agua": 0,
-                "unidade": "litros"
+                "nome": "👟 Tênis",
+                "agua": 8000,
+                "unidade": "L"
             },
             {
-                "nome": "Item 4",
-                "agua": 0,
-                "unidade": "litros"
+                "nome": "📄 Folha de papel A4",
+                "agua": 10,
+                "unidade": "L"
             },
             {
-                "nome": "Item 5",
-                "agua": 0,
-                "unidade": "litros"
+                "nome": "📓 Caderno",
+                "agua": 100,
+                "unidade": "L"
             },
             {
-                "nome": "Item 6",
-                "agua": 0,
-                "unidade": "litros"
+                "nome": "⚽ Bola",
+                "agua": 1000,
+                "unidade": "L"
             },
             {
-                "nome": "Item 7",
-                "agua": 0,
-                "unidade": "litros"
+                "nome": "📖 Livro",
+                "agua": 300,
+                "unidade": "L"
             },
             {
-                "nome": "Item 8",
-                "agua": 0,
-                "unidade": "litros"
+                "nome": "🎮 Controle remoto",
+                "agua": 500,
+                "unidade": "L"
             },
             {
-                "nome": "Item 9",
-                "agua": 0,
-                "unidade": "litros"
+                "nome": "📺 TV",
+                "agua": 25000,
+                "unidade": "L"
             },
             {
-                "nome": "Item 10",
-                "agua": 0,
-                "unidade": "litros"
+                "nome": "📱 Celular",
+                "agua": 12000,
+                "unidade": "L"
             }
         ]
     },
@@ -3314,7 +3315,7 @@
             const grid = document.getElementById('alunos-dinamicos');
             alunosIndividuais.forEach(aluno => {
                 const item = document.createElement('div');
-                item.className = 'aluno-card';
+                item.className = 'aluno-card' + (aluno.status ? ' aluno-completo' : '');
                 item.onclick = () => mostrarTrabalhosAluno(aluno.id);
                 const nome = document.createElement('h4');
                 nome.textContent = aluno.nome;
