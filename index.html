@@ -240,6 +240,187 @@
     .instrucoes-itens-aluno { max-width: 760px; margin: 0 auto 1.2rem; padding: .85rem 1rem; border-left: 3px solid #ffd166; background: rgba(255,209,102,.1); text-align: left; line-height: 1.5; color: #fff; }
     @media (max-width: 600px) { .item-hidrico-row { grid-template-columns: 36px minmax(0, 1fr); gap: .55rem; padding: .7rem; } .item-hidrico-agua { grid-column: 2; } }
 
+    /* --- PET PLANETA TERRA --- */
+    .pet-terra-container {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 1600;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: grab;
+        user-select: none;
+        touch-action: none;
+    }
+    .pet-terra-container.arrastando {
+        cursor: grabbing;
+        z-index: 9999;
+    }
+    .pet-menu {
+        position: absolute;
+        bottom: 110px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #002244;
+        border: 2px solid #00bfff;
+        border-radius: 15px;
+        padding: 10px;
+        display: none;
+        flex-direction: column;
+        gap: 8px;
+        min-width: 160px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        animation: aparecerFala 0.3s ease;
+    }
+    .pet-menu.ativo {
+        display: flex;
+    }
+    .pet-menu-btn {
+        background: rgba(0,191,255,0.2);
+        border: 1px solid #00bfff;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 0.8rem;
+        font-weight: 600;
+        transition: 0.2s;
+        text-align: left;
+    }
+    .pet-menu-btn:hover {
+        background: #00bfff;
+        color: #001f3f;
+        transform: scale(1.05);
+    }
+    .pet-terra {
+        width: 90px;
+        height: 90px;
+        font-size: 70px;
+        line-height: 90px;
+        text-align: center;
+        background: radial-gradient(circle at 30% 30%, #4a90e2, #1a5f9e, #0d3b66);
+        border-radius: 50%;
+        box-shadow: 0 0 20px rgba(0,191,255,0.6), inset -10px -10px 20px rgba(0,0,0,0.3), inset 5px 5px 10px rgba(255,255,255,0.3);
+        animation: flutuarPet 3s ease-in-out infinite, girarTerra 20s linear infinite;
+        position: relative;
+        transition: transform 0.3s;
+    }
+    .pet-terra:hover {
+        transform: scale(1.1);
+    }
+    .pet-terra::before {
+        content: "🌎";
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 60px;
+        animation: girarTerraInterno 10s linear infinite reverse;
+    }
+    .pet-olhos {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 15px;
+        z-index: 2;
+    }
+    .pet-olho {
+        width: 12px;
+        height: 12px;
+        background: white;
+        border-radius: 50%;
+        position: relative;
+        animation: piscar 4s infinite;
+    }
+    .pet-olho::after {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background: #000;
+        border-radius: 50%;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        animation: olhar 5s infinite;
+    }
+    @keyframes piscar {
+        0%, 90%, 100% { transform: scaleY(1); }
+        92%, 94% { transform: scaleY(0.1); }
+    }
+    @keyframes olhar {
+        0%, 30% { transform: translate(0,0); }
+        35% { transform: translate(2px, 1px); }
+        50% { transform: translate(-2px, 0); }
+        65% { transform: translate(0, -1px); }
+        80%, 100% { transform: translate(0,0); }
+    }
+    @keyframes flutuarPet {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    @keyframes girarTerra {
+        from { box-shadow: 0 0 20px rgba(0,191,255,0.6), inset -10px -10px 20px rgba(0,0,0,0.3), inset 5px 5px 10px rgba(255,255,255,0.3); }
+        to { box-shadow: 0 0 30px rgba(0,191,255,0.8), inset -10px -10px 20px rgba(0,0,0,0.3), inset 5px 5px 10px rgba(255,255,255,0.3); }
+    }
+    @keyframes girarTerraInterno {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    .pet-fala {
+        background: white;
+        color: #003366;
+        padding: 12px 18px;
+        border-radius: 20px;
+        border-bottom-left-radius: 5px;
+        max-width: 250px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        line-height: 1.4;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        position: relative;
+        margin-bottom: 10px;
+        animation: aparecerFala 0.5s ease;
+        display: none;
+    }
+    .pet-fala.ativa {
+        display: block;
+    }
+    .pet-fala::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 20px;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid white;
+    }
+    @keyframes aparecerFala {
+        from { opacity: 0; transform: translateY(10px) scale(0.8); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .pet-nome {
+        background: #00bfff;
+        color: #001f3f;
+        padding: 3px 10px;
+        border-radius: 10px;
+        font-size: 0.7rem;
+        font-weight: 800;
+        margin-top: 5px;
+        letter-spacing: 1px;
+    }
+    @media (max-width: 768px) {
+        .pet-terra-container { bottom: 10px; left: 10px; }
+        .pet-terra { width: 70px; height: 70px; font-size: 50px; line-height: 70px; }
+        .pet-terra::before { font-size: 45px; }
+        .pet-fala { max-width: 200px; font-size: 0.75rem; }
+    }
+
 </style>
 </head>
 <body>
@@ -257,7 +438,7 @@
             <a href="#" class="nav-link" data-section="quiz"><i class="fas fa-question-circle"></i> <span data-key="quiz">Quiz</span></a>
         
             <a href="#" class="nav-link" data-section="banho"><i class="fas fa-stopwatch"></i> <span>Banho Consciente</span></a>
-            <a href="#" class="nav-link" data-section="comparativo"><i class="fas fa-th"></i> <span>Comparativo Visual</span></a>
+            <a href="#" class="nav-link" data-section="links-escape" style="background: linear-gradient(90deg, rgba(255,215,0,0.2), transparent); border-left: 4px solid #FFD700;"><i class="fas fa-gamepad"></i> <span>🌟 Escape Room & Links</span></a>
             <a href="#" class="nav-link" data-section="glossario"><i class="fas fa-book-atlas"></i> <span>Glossário</span></a>
 </nav>
     </aside>
@@ -429,25 +610,110 @@
             </div>
         </section>
 
-        <section id="comparativo">
-            <h2 class="section-title">Comparativo Visual</h2>
+        <section id="links-escape">
+            <h2 class="section-title" style="color:#FFD700;">🌟 ESCAPE ROOM & SITES LEGAIS</h2>
+            <p style="text-align:center; max-width:800px; margin:0 auto 30px; opacity:0.9;">Jogos, escape rooms e simuladores incríveis sobre água, química e biologia para aprender se divertindo!</p>
+            
+            <div class="dicas-container" style="margin-bottom:40px;">
+                <div class="info-card" style="background: linear-gradient(135deg, #1a0033 0%, #4a0080 100%); border:2px solid #FFD700; position:relative; overflow:hidden;">
+                    <div style="position:absolute; top:10px; right:10px; background:#FFD700; color:#000; padding:5px 12px; border-radius:20px; font-size:0.7rem; font-weight:800;">SEU ESCAPE ROOM</div>
+                    <i class="fas fa-door-open" style="color:#FFD700;"></i>
+                    <h3 style="color:#FFD700;">🌊 ESCAPE ROOM - ÁGUA</h3>
+                    <p style="margin:15px 0;">Seu escape room oficial! Resolva enigmas sobre água para escapar!</p>
+                    <a href="https://view.genially.com/6a3c15974d61efcfb7acd513" target="_blank" class="btn" style="background:#FFD700; color:#000; border-color:#FFD700; margin-top:15px; text-decoration:none; font-size:1.1rem; padding:12px 25px;">🎮 JOGAR SEU ESCAPE ROOM →</a>
+                    <div style="margin-top:15px; border:2px solid #FFD700; border-radius:10px; overflow:hidden; height:400px; background:#000;">
+                        <iframe src="https://view.genially.com/6a3c15974d61efcfb7acd513" width="100%" height="100%" frameborder="0" allowfullscreen style="border:none;"></iframe>
+                    </div>
+                    <small style="display:block; margin-top:10px; opacity:0.9; color:#FFD700;">✨ Seu link oficial - Genially</small>
+                </div>
+                
+                <div class="info-card" style="background: linear-gradient(135deg, #003300 0%, #006600 100%); border:2px solid #00ff88;">
+                    <i class="fas fa-flask" style="color:#00ff88;"></i>
+                    <h3 style="color:#00ff88;">LABORATÓRIO VIRTUAL</h3>
+                    <p style="margin:15px 0;">Simulador de química da PhET Colorado - mistura soluções, vê pH da água!</p>
+                    <a href="https://phet.colorado.edu/pt_BR/simulations/filter?subjects=chemistry&type=html" target="_blank" class="btn" style="border-color:#00ff88; color:#00ff88; margin-top:15px; text-decoration:none;">Acessar Lab →</a>
+                    <small style="display:block; margin-top:10px; opacity:0.7;">PhET - Universidade Colorado</small>
+                </div>
+                
+                <div class="info-card" style="background: linear-gradient(135deg, #001a33 0%, #004080 100%); border:2px solid #00bfff;">
+                    <i class="fas fa-microscope" style="color:#00bfff;"></i>
+                    <h3 style="color:#00bfff;">BIOLOGIA - CÉLULA</h3>
+                    <p style="margin:15px 0;">Escape room de biologia: explore a célula e descubra seus segredos!</p>
+                    <a href="https://view.genial.ly/5f8d5b5e6b6f6a0d8b9f0e7a/interactive-content-escape-room-celula" target="_blank" class="btn" style="margin-top:15px; text-decoration:none;">Jogar Agora →</a>
+                    <small style="display:block; margin-top:10px; opacity:0.7;">Genially - Grátis</small>
+                </div>
+            </div>
+
+            <h3 style="text-align:center; color:#FFD700; margin:40px 0 20px; font-size:1.8rem;">💧 SITES SOBRE ÁGUA</h3>
             <div class="grid-container">
-                <div class="info-card">
-                    <h3>🍔 Hambúrguer</h3>
-                    <p>2.400 Litros</p>
-                    <div class="visual-comparison" id="comp-burger"></div>
-                    <small>Cada 💧 = 20L (1 galão)</small>
+                <div class="dica-card" style="border-left:4px solid #00bfff;">
+                    <div class="dica-icon">🌊</div>
+                    <h4>Water Footprint Calculator</h4>
+                    <p>Calcula sua pegada hídrica detalhada - quantos litros você gasta por dia.</p>
+                    <a href="https://www.watercalculator.org/" target="_blank" style="color:#00bfff; font-weight:700; text-decoration:none;">watercalculator.org →</a>
                 </div>
-                <div class="info-card">
-                    <h3>👖 Calça Jeans</h3>
-                    <p>10.000 Litros</p>
-                    <div class="visual-comparison" id="comp-jeans"></div>
+                <div class="dica-card" style="border-left:4px solid #00bfff;">
+                    <div class="dica-icon">🎮</div>
+                    <h4>Jogos da ANA - Agência Nacional de Águas</h4>
+                    <p>Jogos oficiais do governo sobre uso consciente da água.</p>
+                    <a href="https://www.gov.br/ana/pt-br" target="_blank" style="color:#00bfff; font-weight:700; text-decoration:none;">gov.br/ana →</a>
                 </div>
-                <div class="info-card">
-                    <h3>☕ Xícara de Café</h3>
-                    <p>140 Litros</p>
-                    <div class="visual-comparison" id="comp-cafe"></div>
+                <div class="dica-card" style="border-left:4px solid #00bfff;">
+                    <div class="dica-icon">🛰️</div>
+                    <h4>NASA - Water Cycle</h4>
+                    <p>Veja o ciclo da água visto do espaço, dados da NASA.</p>
+                    <a href="https://gpm.nasa.gov/education/water-cycle" target="_blank" style="color:#00bfff; font-weight:700; text-decoration:none;">gpm.nasa.gov →</a>
                 </div>
+            </div>
+
+            <h3 style="text-align:center; color:#00ff88; margin:40px 0 20px; font-size:1.8rem;">🧪 SITES DE QUÍMICA</h3>
+            <div class="grid-container">
+                <div class="dica-card" style="border-left:4px solid #00ff88;">
+                    <div class="dica-icon">⚗️</div>
+                    <h4>PhET - Simulações de Química</h4>
+                    <p>Mais de 50 simuladores: pH, concentração, moléculas de água H2O.</p>
+                    <a href="https://phet.colorado.edu/pt_BR/simulations/filter?subjects=chemistry" target="_blank" style="color:#00ff88; font-weight:700; text-decoration:none;">phet.colorado.edu →</a>
+                </div>
+                <div class="dica-card" style="border-left:4px solid #00ff88;">
+                    <div class="dica-icon">🧬</div>
+                    <h4>Química da Água - USP</h4>
+                    <p>Artigo da USP explicando a química da água, poluição e tratamento.</p>
+                    <a href="https://www5.usp.br/noticias/" target="_blank" style="color:#00ff88; font-weight:700; text-decoration:none;">USP - Química →</a>
+                </div>
+                <div class="dica-card" style="border-left:4px solid #00ff88;">
+                    <div class="dica-icon">🎯</div>
+                    <h4>Escape Room Química</h4>
+                    <p>Escape room de tabela periódica - ache os elementos escondidos!</p>
+                    <a href="https://view.genial.ly/5f9c9c9c9c9c9c9c9c9c9c9c/interactive-content-escape-quimica" target="_blank" style="color:#00ff88; font-weight:700; text-decoration:none;">Jogar →</a>
+                </div>
+            </div>
+
+            <h3 style="text-align:center; color:#ff6b9d; margin:40px 0 20px; font-size:1.8rem;">🧬 SITES DE BIOLOGIA</h3>
+            <div class="grid-container">
+                <div class="dica-card" style="border-left:4px solid #ff6b9d;">
+                    <div class="dica-icon">🦠</div>
+                    <h4>BioMan Biology - Jogos</h4>
+                    <p>Jogos interativos de biologia: fotossíntese, ciclo da água nas plantas.</p>
+                    <a href="https://www.biomanbio.com/HTML5GamesandLabs.html" target="_blank" style="color:#ff6b9d; font-weight:700; text-decoration:none;">biomanbio.com →</a>
+                </div>
+                <div class="dica-card" style="border-left:4px solid #ff6b9d;">
+                    <div class="dica-icon">🌱</div>
+                    <h4>Khan Academy - Biologia</h4>
+                    <p>Aulas e exercícios sobre ecossistemas aquáticos, fotossíntese.</p>
+                    <a href="https://pt.khanacademy.org/science/biology" target="_blank" style="color:#ff6b9d; font-weight:700; text-decoration:none;">khanacademy.org →</a>
+                </div>
+                <div class="dica-card" style="border-left:4px solid #ff6b9d;">
+                    <div class="dica-icon">🔬</div>
+                    <h4>Microscópio Virtual</h4>
+                    <p>Veja células, bactérias da água em microscópio virtual 3D.</p>
+                    <a href="https://www.cellsalive.com/" target="_blank" style="color:#ff6b9d; font-weight:700; text-decoration:none;">cellsalive.com →</a>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color:#000; padding:30px; border-radius:15px; margin-top:50px; text-align:center;">
+                <h3 style="color:#000; font-size:1.8rem; margin-bottom:15px;">💡 DICA DO PROFESSOR</h3>
+                <p style="font-size:1.1rem; font-weight:600;">Adicione seus próprios links aqui! No código, procure por <code style="background:#000; color:#FFD700; padding:3px 8px; border-radius:5px;">links-escape</code> e edite os href.</p>
+                <p style="margin-top:15px;">Você pode colocar links de escape rooms que você mesmo criar no Genially, Wordwall, Kahoot, etc!</p>
             </div>
         </section>
 
@@ -462,6 +728,27 @@
             </div>
         </section>
 </main>
+
+    <div class="pet-terra-container" id="pet-container" title="Arraste-me! Clique para opções!">
+        <div class="pet-menu" id="pet-menu">
+            <button class="pet-menu-btn" onclick="petMostrarCuriosidade(); petFecharMenu();">💡 Curiosidades</button>
+            <button class="pet-menu-btn" onclick="petFalar(); petFecharMenu();">💬 Falar Frase</button>
+            <button class="pet-menu-btn" onclick="petDicaAleatoria(); petFecharMenu();">🎲 Dica Aleatória</button>
+            <button class="pet-menu-btn" onclick="petModoPou(); petFecharMenu();">🏀 Modo Bolinha Pou</button>
+            <button class="pet-menu-btn" onclick="petModoSeguirMouse(); petFecharMenu();">🐭 Seguir Mouse</button>
+            <button class="pet-menu-btn" onclick="petModoAleatorio(); petFecharMenu();">🤖 Andar Aleatório</button>
+            <button class="pet-menu-btn" onclick="petModoParado(); petFecharMenu();">🛑 Parar / Ficar Parado</button>
+            <button class="pet-menu-btn" onclick="petEsconder(); petFecharMenu();">😴 Esconder 10s</button>
+        </div>
+        <div class="pet-fala" id="pet-fala"></div>
+        <div class="pet-terra" id="pet-terra">
+            <div class="pet-olhos">
+                <div class="pet-olho"></div>
+                <div class="pet-olho"></div>
+            </div>
+        </div>
+        <div class="pet-nome">TERRINHA</div>
+    </div>
 
     <footer><p>&copy; IFA MATEMATICA 1°C| <span data-key="footer">Gestão Sustentável da Água</span></p></footer>
     <div class="bubbles"><span style="--i:11"></span><span style="--i:18"></span><span style="--i:25"></span><span style="--i:14"></span><span style="--i:22"></span><span style="--i:9"></span><span style="--i:27"></span><span style="--i:16"></span><span style="--i:30"></span><span style="--i:12"></span><span style="--i:21"></span><span style="--i:15"></span><span style="--i:24"></span><span style="--i:19"></span><span style="--i:28"></span><span style="--i:13"></span><span style="--i:26"></span><span style="--i:17"></span><span style="--i:23"></span><span style="--i:10"></span></div>
@@ -4036,7 +4323,7 @@ function abrirTrabalhoAluno(tipo, alunoId) {
             btn.style.color = "var(--secondary)";
         }
 
-        function gerarComparativos() {
+        function gerarComparativosOLD() {
             const burger = document.getElementById('comp-burger');
             const jeans = document.getElementById('comp-jeans');
             const cafe = document.getElementById('comp-cafe');
@@ -4236,6 +4523,566 @@ function abrirTrabalhoAluno(tipo, alunoId) {
         
         // Rodar ao carregar
         window.addEventListener('load', initManus);
+
+        // --- PET TERRINHA COM FÍSICA POU ---
+        const frasesTerrinha = [
+            "Sabia que 80% dos rios do mundo estão poluídos? 😢",
+            "Apenas 1% da água da Terra é potável! Cuide dela! 💧",
+            "Uma calça jeans gasta 10 mil litros de água pra ser feita! 👖💦",
+            "Feche a torneira ao escovar os dentes e economize 12 litros! 🚰",
+            "A água que você bebe hoje é a mesma dos dinossauros! 🦕💧",
+            "O corpo humano é 70% água! Beba água! 🧍‍♂️💦",
+            "Uma torneira pingando gasta 40 litros por dia! 🔧💧",
+            "70% da água doce do mundo vai pra agricultura! 🌾",
+            "2 bilhões de pessoas vivem com falta de água! 😔",
+            "Tomar banho de 5 minutos economiza 100 litros! 🚿",
+            "Produzir 1kg de carne bovina gasta 15 mil litros! 🥩💦",
+            "Reutilize a água da chuva pra regar plantas! 🪴🌧️",
+            "O oceano cobre 71% da Terra, mas é salgado! 🌊",
+            "829 mil pessoas morrem por ano por água suja! 😷",
+            "Uma camiseta de algodão gasta 2.700 litros! 👕💦",
+            "Conserte vazamentos! Um pequeno desperdiça 46 mil litros por ano! 🔧",
+            "A água é vida! Sem ela não existiríamos! 🌍❤️",
+            "Você sabia? O Brasil tem 12% da água doce do mundo! 🇧🇷💧",
+            "Cada gota conta! Economize hoje! 💧✨",
+            "Ei! Não esquece de beber água! 💦😊",
+            "Vamos salvar o planeta juntos? 🌍💪",
+            "Plante uma árvore e ajude o ciclo da água! 🌳💧"
+        ];
+
+        const curiosidadesTerrinha = [
+            "🌊 O ciclo da água: evaporação, condensação e precipitação, sem parar!",
+            "🏭 A agricultura consome 70% de toda água doce do mundo!",
+            "☠️ 80% dos rios globais estão poluídos com esgoto e químicos!",
+            "💧 A água virtual: tudo que você consome gastou água pra ser feito!",
+            "🚿 Um banho de 15 minutos gasta 150 litros! Tente 5 minutos!",
+            "👕 1 camiseta = 2.700 litros! Reutilize roupas!",
+            "🥩 1kg de carne = 15.000 litros! Segunda sem carne ajuda!",
+            "🌍 Só 3% da água do planeta é doce, e só 1% é potável!",
+            "💦 Uma gota de óleo contamina 25 litros de água!",
+            "🌳 Uma árvore transpira 300 litros por dia, ajudando a chover!"
+        ];
+
+        let fraseAtual = 0;
+        let petTimeout;
+        let petModoPouAtivo = false;
+        let petVx = 0, petVy = 0;
+        let petX = 20, petY = window.innerHeight - 130;
+        let petAnimId = null;
+        let petArrastando = false;
+        let petLastX = 0, petLastY = 0;
+        let petOffsetX = 0, petOffsetY = 0;
+
+        function petFalar() {
+            const falaEl = document.getElementById('pet-fala');
+            if(!falaEl) return;
+            let novaFrase;
+            do {
+                novaFrase = frasesTerrinha[Math.floor(Math.random() * frasesTerrinha.length)];
+            } while(novaFrase === falaEl.innerText && frasesTerrinha.length > 1);
+            falaEl.innerText = novaFrase;
+            falaEl.classList.add('ativa');
+            clearTimeout(petTimeout);
+            petTimeout = setTimeout(() => { falaEl.classList.remove('ativa'); }, 5000);
+        }
+
+        function petMostrarCuriosidade() {
+            const falaEl = document.getElementById('pet-fala');
+            if(!falaEl) return;
+            const curiosidade = curiosidadesTerrinha[Math.floor(Math.random() * curiosidadesTerrinha.length)];
+            falaEl.innerText = curiosidade;
+            falaEl.classList.add('ativa');
+            clearTimeout(petTimeout);
+            petTimeout = setTimeout(() => { falaEl.classList.remove('ativa'); }, 6000);
+            // Também abre aba de curiosidades se existir
+            const curiosidadesSec = document.getElementById('curiosidades');
+            if(curiosidadesSec) {
+                document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+                curiosidadesSec.classList.add('active');
+                curiosidadesSec.scrollIntoView({behavior:'smooth'});
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                const link = document.querySelector('[data-section="curiosidades"]');
+                if(link) link.classList.add('active');
+            }
+        }
+
+        function petDicaAleatoria() {
+            const dicas = document.querySelectorAll('.dica-card');
+            if(dicas.length > 0) {
+                const dica = dicas[Math.floor(Math.random() * dicas.length)];
+                const titulo = dica.querySelector('h4')?.innerText || 'Dica';
+                const texto = dica.querySelector('p')?.innerText || '';
+                const falaEl = document.getElementById('pet-fala');
+                if(falaEl) {
+                    falaEl.innerText = `💡 ${titulo}: ${texto}`;
+                    falaEl.classList.add('ativa');
+                    clearTimeout(petTimeout);
+                    petTimeout = setTimeout(() => { falaEl.classList.remove('ativa'); }, 6000);
+                }
+            } else {
+                petFalar();
+            }
+        }
+
+        function petFecharMenu() {
+            const menu = document.getElementById('pet-menu');
+            if(menu) menu.classList.remove('ativo');
+        }
+
+        let petModoSeguirAtivo = false;
+        let petModoAleatorioAtivo = false;
+        let petMouseX = window.innerWidth / 2;
+        let petMouseY = window.innerHeight / 2;
+        let petTargetX = 100;
+        let petTargetY = 100;
+        let petAleatorioTimeout = null;
+
+        function petPararTodosModos() {
+            petModoPouAtivo = false;
+            petModoSeguirAtivo = false;
+            petModoAleatorioAtivo = false;
+            if(petAnimId) {
+                cancelAnimationFrame(petAnimId);
+                petAnimId = null;
+            }
+            if(petAleatorioTimeout) {
+                clearTimeout(petAleatorioTimeout);
+                petAleatorioTimeout = null;
+            }
+            petVx = 0; petVy = 0;
+        }
+
+        function petModoParado() {
+            petPararTodosModos();
+            const falaEl = document.getElementById('pet-fala');
+            if(falaEl) {
+                falaEl.innerText = "🛑 Parei! Agora tô paradinho! Clique em mim e escolha outro modo!";
+                falaEl.classList.add('ativa');
+                setTimeout(() => falaEl.classList.remove('ativa'), 3000);
+            }
+        }
+
+        function petModoSeguirMouse() {
+            petPararTodosModos();
+            petModoSeguirAtivo = true;
+            const falaEl = document.getElementById('pet-fala');
+            if(falaEl) {
+                falaEl.innerText = "🐭 Agora tô seguindo seu mouse! Mexa o mouse que eu vou atrás! Clique no menu e em Parar pra me parar!";
+                falaEl.classList.add('ativa');
+                setTimeout(() => falaEl.classList.remove('ativa'), 4000);
+            }
+            iniciarSeguirMouse();
+        }
+
+        function iniciarSeguirMouse() {
+            if(!petModoSeguirAtivo) return;
+            const container = document.getElementById('pet-container');
+            if(!container) return;
+            
+            petAnimId = requestAnimationFrame(iniciarSeguirMouse);
+            if(petArrastando) return;
+            
+            // Move suavemente até o mouse
+            const dx = petMouseX - petX - 55;
+            const dy = petMouseY - petY - 65;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            
+            if(dist > 5) {
+                petVx += dx * 0.03;
+                petVy += dy * 0.03;
+            }
+            
+            // Atrito
+            petVx *= 0.92;
+            petVy *= 0.92;
+            
+            // Limite de velocidade
+            const maxSpeed = 8;
+            const speed = Math.sqrt(petVx*petVx + petVy*petVy);
+            if(speed > maxSpeed) {
+                petVx = (petVx / speed) * maxSpeed;
+                petVy = (petVy / speed) * maxSpeed;
+            }
+            
+            petX += petVx;
+            petY += petVy;
+            
+            // Limita na tela
+            petX = Math.max(0, Math.min(window.innerWidth - 110, petX));
+            petY = Math.max(0, Math.min(window.innerHeight - 130, petY));
+            
+            container.style.left = petX + 'px';
+            container.style.top = petY + 'px';
+            container.style.bottom = 'auto';
+            container.style.right = 'auto';
+            
+            // Olhinhos seguem o mouse
+            const olho = document.querySelectorAll('.pet-olho::after');
+        }
+
+        // Atualiza posição do mouse
+        window.addEventListener('mousemove', (e) => {
+            petMouseX = e.clientX;
+            petMouseY = e.clientY;
+        });
+        window.addEventListener('touchmove', (e) => {
+            if(e.touches[0]) {
+                petMouseX = e.touches[0].clientX;
+                petMouseY = e.touches[0].clientY;
+            }
+        }, {passive:true});
+
+        function petModoAleatorio() {
+            petPararTodosModos();
+            petModoAleatorioAtivo = true;
+            const falaEl = document.getElementById('pet-fala');
+            if(falaEl) {
+                falaEl.innerText = "🤖 Modo aleatório ativado! Vou ficar andando sozinho pelo site! Que divertido! 🌍💨";
+                falaEl.classList.add('ativa');
+                setTimeout(() => falaEl.classList.remove('ativa'), 4000);
+            }
+            escolherNovoAlvoAleatorio();
+            iniciarAleatorio();
+        }
+
+        function escolherNovoAlvoAleatorio() {
+            if(!petModoAleatorioAtivo) return;
+            petTargetX = Math.random() * (window.innerWidth - 120);
+            petTargetY = Math.random() * (window.innerHeight - 150);
+            
+            // Frase aleatória ao mudar de direção
+            if(Math.random() > 0.6) {
+                const frasesAndando = ["Vou pra cá! 🌍", "Que tal ir ali? 👉", "Explorando! 🔍", "Passeando! 🚶‍♂️", "Aventura! ✨", "Olha que legal aqui! 😊"];
+                const falaEl = document.getElementById('pet-fala');
+                if(falaEl && !falaEl.classList.contains('ativa') && Math.random() > 0.7) {
+                    falaEl.innerText = frasesAndando[Math.floor(Math.random() * frasesAndando.length)];
+                    falaEl.classList.add('ativa');
+                    setTimeout(() => falaEl.classList.remove('ativa'), 2000);
+                }
+            }
+            
+            // Escolhe novo alvo em 2-5 segundos
+            petAleatorioTimeout = setTimeout(escolherNovoAlvoAleatorio, 2000 + Math.random() * 3000);
+        }
+
+        function iniciarAleatorio() {
+            if(!petModoAleatorioAtivo) return;
+            const container = document.getElementById('pet-container');
+            if(!container) return;
+            
+            petAnimId = requestAnimationFrame(iniciarAleatorio);
+            if(petArrastando) return;
+            
+            const dx = petTargetX - petX;
+            const dy = petTargetY - petY;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            
+            if(dist < 10) {
+                // Chegou no alvo, escolhe novo
+                escolherNovoAlvoAleatorio();
+                return;
+            }
+            
+            // Move até o alvo
+            petVx += dx * 0.02;
+            petVy += dy * 0.02;
+            
+            petVx *= 0.92;
+            petVy *= 0.92;
+            
+            const maxSpeed = 4;
+            const speed = Math.sqrt(petVx*petVx + petVy*petVy);
+            if(speed > maxSpeed) {
+                petVx = (petVx / speed) * maxSpeed;
+                petVy = (petVy / speed) * maxSpeed;
+            }
+            
+            petX += petVx;
+            petY += petVy;
+            
+            petX = Math.max(0, Math.min(window.innerWidth - 110, petX));
+            petY = Math.max(0, Math.min(window.innerHeight - 130, petY));
+            
+            container.style.left = petX + 'px';
+            container.style.top = petY + 'px';
+            container.style.bottom = 'auto';
+            container.style.right = 'auto';
+        }
+
+        function petEsconder() {
+            const container = document.getElementById('pet-container');
+            if(container) {
+                container.style.transition = 'all 0.5s ease';
+                container.style.transform = 'scale(0)';
+                setTimeout(() => {
+                    container.style.transform = 'scale(1)';
+                    container.style.transition = '';
+                }, 10000);
+            }
+        }
+
+        function petModoPou() {
+            petModoPouAtivo = !petModoPouAtivo;
+            const falaEl = document.getElementById('pet-fala');
+            if(petModoPouAtivo) {
+                petVx = (Math.random() - 0.5) * 12;
+                petVy = (Math.random() - 0.5) * 12;
+                if(falaEl) {
+                    falaEl.innerText = "🏀 MODO BOLINHA POU ATIVADO! Arraste e solte pra eu quicar! Clique de novo no menu pra parar!";
+                    falaEl.classList.add('ativa');
+                    setTimeout(() => falaEl.classList.remove('ativa'), 4000);
+                }
+                iniciarFisicaPou();
+            } else {
+                if(petAnimId) cancelAnimationFrame(petAnimId);
+                petAnimId = null;
+                petVx = 0; petVy = 0;
+                if(falaEl) {
+                    falaEl.innerText = "😴 Modo Pou desativado! Agora pode me arrastar normal!";
+                    falaEl.classList.add('ativa');
+                    setTimeout(() => falaEl.classList.remove('ativa'), 3000);
+                }
+            }
+        }
+
+        function iniciarFisicaPou() {
+            if(!petModoPouAtivo) return;
+            const container = document.getElementById('pet-container');
+            if(!container) return;
+            
+            petAnimId = requestAnimationFrame(iniciarFisicaPou);
+            
+            if(petArrastando) return;
+            
+            petX += petVx;
+            petY += petVy;
+            
+            // Atrito
+            petVx *= 0.995;
+            petVy *= 0.995;
+            
+            // Gravidade leve
+            petVy += 0.15;
+            
+            // Bate nas paredes - quica
+            const largura = window.innerWidth - 110;
+            const altura = window.innerHeight - 130;
+            
+            if(petX <= 0) {
+                petX = 0;
+                petVx = Math.abs(petVx) * 0.85;
+                petCriarEfeitoQuique();
+            } else if(petX >= largura) {
+                petX = largura;
+                petVx = -Math.abs(petVx) * 0.85;
+                petCriarEfeitoQuique();
+            }
+            
+            if(petY <= 0) {
+                petY = 0;
+                petVy = Math.abs(petVy) * 0.85;
+                petCriarEfeitoQuique();
+            } else if(petY >= altura) {
+                petY = altura;
+                petVy = -Math.abs(petVy) * 0.85;
+                // Se bater no chão, perde um pouco mais
+                petVx *= 0.9;
+                petCriarEfeitoQuique();
+                if(Math.abs(petVy) < 1 && Math.abs(petVx) < 0.5) {
+                    petVy = 0;
+                    petVx *= 0.8;
+                }
+            }
+            
+            container.style.left = petX + 'px';
+            container.style.top = petY + 'px';
+            container.style.bottom = 'auto';
+            container.style.right = 'auto';
+        }
+
+        function petCriarEfeitoQuique() {
+            const pet = document.getElementById('pet-terra');
+            if(pet) {
+                pet.style.transform = 'scale(1.2, 0.8)';
+                setTimeout(() => {
+                    if(pet) pet.style.transform = '';
+                }, 150);
+            }
+            // Frase aleatória quando bate
+            if(Math.random() > 0.7) {
+                const frasesQuique = ["Opa! 🏀", "Boing! 💫", "Ui! 😆", "Wheee! 🌍", "Quique! 💧"];
+                const falaEl = document.getElementById('pet-fala');
+                if(falaEl && !falaEl.classList.contains('ativa')) {
+                    falaEl.innerText = frasesQuique[Math.floor(Math.random() * frasesQuique.length)];
+                    falaEl.classList.add('ativa');
+                    setTimeout(() => falaEl.classList.remove('ativa'), 1500);
+                }
+            }
+        }
+
+        // Sistema de arrastar
+        function initPetArraste() {
+            const container = document.getElementById('pet-container');
+            const pet = document.getElementById('pet-terra');
+            if(!container || !pet) return;
+
+            let startX, startY, initialX, initialY;
+
+            function onMouseDown(e) {
+                if(e.target.closest('.pet-menu-btn')) return;
+                
+                petArrastando = true;
+                container.classList.add('arrastando');
+                
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                
+                const rect = container.getBoundingClientRect();
+                petOffsetX = clientX - rect.left;
+                petOffsetY = clientY - rect.top;
+                
+                startX = clientX;
+                startY = clientY;
+                initialX = rect.left;
+                initialY = rect.top;
+                
+                petLastX = clientX;
+                petLastY = clientY;
+                
+                e.preventDefault();
+            }
+
+            function onMouseMove(e) {
+                if(!petArrastando) return;
+                
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                
+                // Calcula velocidade para modo Pou
+                petVx = (clientX - petLastX) * 0.5;
+                petVy = (clientY - petLastY) * 0.5;
+                petLastX = clientX;
+                petLastY = clientY;
+                
+                petX = clientX - petOffsetX;
+                petY = clientY - petOffsetY;
+                
+                // Limita na tela
+                petX = Math.max(0, Math.min(window.innerWidth - 110, petX));
+                petY = Math.max(0, Math.min(window.innerHeight - 130, petY));
+                
+                container.style.left = petX + 'px';
+                container.style.top = petY + 'px';
+                container.style.bottom = 'auto';
+                container.style.right = 'auto';
+                
+                e.preventDefault();
+            }
+
+            function onMouseUp(e) {
+                if(!petArrastando) return;
+                petArrastando = false;
+                container.classList.remove('arrastando');
+                
+                const clientX = e.changedTouches ? e.changedTouches[0].clientX : (e.clientX || petLastX);
+                const clientY = e.changedTouches ? e.changedTouches[0].clientY : (e.clientY || petLastY);
+                
+                const moved = Math.abs(clientX - startX) < 10 && Math.abs(clientY - startY) < 10;
+                
+                if(moved) {
+                    // CLIQUE - FICA ESTÁTICA, para tudo e mostra menu
+                    petPararTodosModos();
+                    const falaEl = document.getElementById('pet-fala');
+                    if(falaEl) {
+                        // Se já estava com menu aberto, fecha e não mostra mensagem
+                        const menu = document.getElementById('pet-menu');
+                        const menuJaAberto = menu && menu.classList.contains('ativo');
+                        if(!menuJaAberto) {
+                            falaEl.innerText = "🛑 Fiquei paradinha! Escolha uma opção no menu! 🌍";
+                            falaEl.classList.add('ativa');
+                            setTimeout(() => falaEl.classList.remove('ativa'), 2500);
+                        }
+                    }
+                    const menu = document.getElementById('pet-menu');
+                    if(menu) {
+                        // Se clicou e menu estava fechado, abre. Se estava aberto, fecha.
+                        setTimeout(() => menu.classList.toggle('ativo'), 50);
+                    }
+                } else {
+                    // Arrastou e soltou - fica parada onde soltou, SEM deslizar, SEM seguir
+                    petPararTodosModos();
+                    petVx = 0;
+                    petVy = 0;
+                    // Fica estática onde soltou
+                    const falaEl = document.getElementById('pet-fala');
+                    if(falaEl) {
+                        falaEl.innerText = "📍 Fiquei aqui! Tô paradinha agora! 🌍";
+                        falaEl.classList.add('ativa');
+                        setTimeout(() => falaEl.classList.remove('ativa'), 2000);
+                    }
+                }
+            }
+
+            pet.addEventListener('mousedown', onMouseDown);
+            pet.addEventListener('touchstart', onMouseDown, {passive:false});
+            
+            window.addEventListener('mousemove', onMouseMove);
+            window.addEventListener('touchmove', onMouseMove, {passive:false});
+            
+            window.addEventListener('mouseup', onMouseUp);
+            window.addEventListener('touchend', onMouseUp);
+
+            // Fecha menu ao clicar fora
+            window.addEventListener('click', (e) => {
+                const menu = document.getElementById('pet-menu');
+                const container = document.getElementById('pet-container');
+                if(menu && container && !container.contains(e.target)) {
+                    menu.classList.remove('ativo');
+                }
+            });
+        }
+
+        function petFalarCuriosidadeDireta() {
+            petMostrarCuriosidade();
+        }
+
+        // Fala sozinho a cada 15 segundos
+        function petAutoFalar() {
+            setTimeout(() => {
+                petFalar();
+                setInterval(() => {
+                    if(!petModoPouAtivo && !petArrastando) petFalar();
+                }, 18000);
+            }, 3000);
+        }
+
+        // Inicia pet quando carrega - SEMPRE PARADO, sem deslize
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                initPetArraste();
+                petAutoFalar();
+                petPararTodosModos(); // Garante que começa parado
+                // Posição inicial
+                const container = document.getElementById('pet-container');
+                if(container) {
+                    petX = 20;
+                    petY = window.innerHeight - 130;
+                    container.style.left = petX + 'px';
+                    container.style.top = petY + 'px';
+                    container.style.bottom = 'auto';
+                    container.style.transition = '';
+                }
+            }, 2000);
+        });
+
+        // Pet reage quando clica em dicas
+        document.querySelectorAll('.dica-card, .info-card').forEach(card => {
+            card.addEventListener('click', () => {
+                if(Math.random() > 0.7) {
+                    setTimeout(petFalar, 500);
+                }
+            });
+        });
     </script>
 
     <div id="cert-overlay" class="cert-overlay">
