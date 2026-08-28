@@ -151,6 +151,18 @@
         #overlay-equipes-card.tema-laranja .equipe-card:hover { background: rgba(255,107,53,0.8); border-color: #FFB26B; transform: translateY(-8px) scale(1.03); }
         #overlay-equipes-card.tema-laranja .equipe-header { background: #FF6B35!important; }
         #overlay-equipes-card.tema-laranja h3 { color: #FFB26B!important; }
+        #overlay-equipes-card.tema-projeto { background: linear-gradient(180deg, #1a0033 0%, #4a0080 50%, #9d00ff 100%); border: 2px solid #9d00ff; box-shadow: 0 0 40px rgba(157,0,255,0.6); --secondary: #9d00ff!important; overflow: hidden; position: relative; }
+        #overlay-equipes-card.tema-projeto::before { content: "🎬 🎓 📚 ✨ 🏆"; position: absolute; top: -30px; left: 0; width: 100%; font-size: 2rem; animation: cairFolhas 15s linear infinite; opacity: 0.4; z-index: 0; pointer-events: none; }
+        #overlay-equipes-card.tema-projeto .equipe-card { background: rgba(26, 0, 51, 0.8); border: 1px solid rgba(157,0,255,0.5); backdrop-filter: blur(3px); }
+        #overlay-equipes-card.tema-projeto .equipe-card:hover { background: rgba(157,0,255,0.8); border-color: #d26bff; transform: translateY(-8px) scale(1.03); }
+        #overlay-equipes-card.tema-projeto .equipe-header { background: #9d00ff!important; }
+        #overlay-equipes-card.tema-projeto h3 { color: #d26bff!important; }
+        #overlay-equipes-card.tema-desperdicio { background: linear-gradient(180deg, #330000 0%, #800000 50%, #ff0000 100%); border: 2px solid #ff0000; box-shadow: 0 0 40px rgba(255,0,0,0.6); --secondary: #ff4444!important; overflow: hidden; position: relative; }
+        #overlay-equipes-card.tema-desperdicio::before { content: "💧 🚱 💦 ⚠️ 🚰"; position: absolute; top: -30px; left: 0; width: 100%; font-size: 2rem; animation: cairFolhas 15s linear infinite; opacity: 0.4; z-index: 0; pointer-events: none; }
+        #overlay-equipes-card.tema-desperdicio .equipe-card { background: rgba(51, 0, 0, 0.8); border: 1px solid rgba(255,0,0,0.5); backdrop-filter: blur(3px); }
+        #overlay-equipes-card.tema-desperdicio .equipe-card:hover { background: rgba(255,0,0,0.8); border-color: #ff9999; transform: translateY(-8px) scale(1.03); }
+        #overlay-equipes-card.tema-desperdicio .equipe-header { background: #ff0000!important; }
+        #overlay-equipes-card.tema-desperdicio h3 { color: #ff9999!important; }
 
         @media (max-width: 768px) { #overlay-equipes-card .equipes-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } }
     
@@ -337,6 +349,8 @@
                 <div class="info-card" onclick="mostrarListaEquipes('stopmotion')"><i class="fas fa-video"></i><h3 data-key="stop_tit">Stop Motion</h3><p data-key="stop_desc">Assista aos vídeos das 15 equipes</p><span class="click-hint" data-key="clique">Clique para ver →</span></div>
                 <div class="info-card" onclick="mostrarListaEquipes('terrario')"><i class="fas fa-seedling"></i><h3 data-key="terrario_tit">Terrário</h3><p data-key="terrario_desc">Veja as 15 equipes e seus terrários</p><span class="click-hint" data-key="clique">Clique para ver →</span></div>
                 <div class="info-card" onclick="mostrarListaEquipes('terrario2')" style="background: #FF6B35 !important; border: 1px solid #FF6B35 !important;"><i class="fas fa-layer-group"></i><h3 data-key="terrario2_tit" style="color: white !important;">CAUSAS E CONSEQUÊNCIAS</h3><p data-key="terrario2_desc" style="color: white !important;">Veja as 15 equipes - Terrário 2</p><span class="click-hint" data-key="clique" style="color: white !important;">Clique para ver →</span></div>
+                <div class="info-card" onclick="mostrarListaEquipes('projetofinal2tri')" style="background: #9d00ff !important; border: 1px solid #9d00ff !important;"><i class="fas fa-film"></i><h3 data-key="projeto2tri_tit" style="color: white !important;">PROJETO FINAL 2° TRI</h3><p data-key="projeto2tri_desc" style="color: white !important;">Veja as 15 equipes - 1 vídeo por equipe</p><span class="click-hint" data-key="clique" style="color: white !important;">Clique para ver →</span></div>
+                <div class="info-card" onclick="mostrarListaEquipes('desperdicio')" style="background: #ff0000 !important; border: 1px solid #ff0000 !important;"><i class="fas fa-tint-slash"></i><h3 data-key="desperdicio_tit" style="color: white !important;">DESPERDÍCIO DE ÁGUA</h3><p data-key="desperdicio_desc" style="color: white !important;">Veja as 15 equipes - Slides</p><span class="click-hint" data-key="clique" style="color: white !important;">Clique para ver →</span></div>
                 <div class="info-card trabalhos-individuais-card" onclick="mostrarListaAlunos()"><i class="fas fa-user-graduate"></i><h3 data-key="individual_tit">Trabalhos Individuais</h3><p data-key="individual_desc">Veja os 10 itens e a quantidade de água de cada aluno</p><span class="click-hint" data-key="clique">Clique para ver →</span></div>
             </div>
             <div id="lista-equipes-container" style="margin-top: 3rem;"></div>
@@ -707,6 +721,114 @@
                     { id: 15, nome: "Equipo 15", participantes: ["Alumno 15-1", "Alumno 15-2"], totalPaginas: 8 }
                 ]
             }
+        ,
+            projetofinal2tri: {
+                pt: [
+                    { id: 1, nome: "Equipe 1", participantes: ["Phietro Emanuel","Henrique Brisola", "Juan", "Eduardo"], totalPaginas: 1 },
+                    { id: 2, nome: "Equipe 2", participantes: ["Luana Marcondes", "Hallana Oliveira ", "Davi Peres"], totalPaginas: 1 },
+                    { id: 3, nome: "Equipe 3", participantes: ["Nicole horn da silva ", "Kayk pereira ", "Yasmin de Oliveira ", "Victor Henrique"], totalPaginas: 1 },
+                    { id: 4, nome: "Equipe 4", participantes: ["Nicole Cristine Castorino", "Ticiane"], totalPaginas: 1 },
+                    { id: 5, nome: "Equipe 5", participantes: ["Larah", "João Antonio", "Gabi"], totalPaginas: 1 },
+                    { id: 6, nome: "Equipe 6", participantes: ["Júlia Sanchez", "Nicoly Castro"], totalPaginas: 1 },
+                    { id: 7, nome: "Equipe 7", participantes: ["Ana Clara dias", "Gabriela Antunes Geremias"], totalPaginas: 1 },
+                    { id: 8, nome: "Equipe 8", participantes: ["Emanoel Felipe", "Andrielly Ilza"], totalPaginas: 1 },
+                    { id: 9, nome: "Equipe 9", participantes: ["Emilly Zampieri", "Nicolas","Anielly"], totalPaginas: 1 },
+                    { id: 10, nome: "Equipe 10", participantes: ["Larissa Buture"], totalPaginas: 1 },
+                    { id: 11, nome: "Equipe 11", participantes: ["Vitor Andrioli", "Anderson", "Luiz Fernando"], totalPaginas: 1 },
+                    { id: 12, nome: "Equipe 12", participantes: ["Anihelly Faria Pinheiro ", "Emilly Zampieri ", "Nicolas slonoski"], totalPaginas: 1 },
+                    { id: 13, nome: "Equipe 13", participantes: ["João Victor", "Samuel"], totalPaginas: 1 },
+                    { id: 14, nome: "Equipe 14", participantes: ["Gabriel Machado"], totalPaginas: 1 },
+                    { id: 15, nome: "Equipe 15", participantes: ["Aluno 15-1", "Aluno 15-2"], totalPaginas: 1 }
+                ],
+                en: [
+                    { id: 1, nome: "Team 1", participantes: ["Phietro Emanuel","Henrique Brisola", "Juan", "Eduardo"], totalPaginas: 1 },
+                    { id: 2, nome: "Team 2", participantes: ["Luana Marcondes", "Hallana Oliveira ", "Davi Peres"], totalPaginas: 1 },
+                    { id: 3, nome: "Team 3", participantes: ["Nicole horn da silva ", "Kayk pereira ", "Yasmin de Oliveira ", "Victor Henrique"], totalPaginas: 1 },
+                    { id: 4, nome: "Team 4", participantes: ["Nicole Cristine Castorino", "Ticiane"], totalPaginas: 1 },
+                    { id: 5, nome: "Team 5", participantes: ["Larah", "João Antonio", "Gabi"], totalPaginas: 1 },
+                    { id: 6, nome: "Team 6", participantes: ["Júlia Sanchez", "Nicoly Castro"], totalPaginas: 1 },
+                    { id: 7, nome: "Team 7", participantes: ["Ana Clara dias", "Gabriela Antunes Geremias"], totalPaginas: 1 },
+                    { id: 8, nome: "Team 8", participantes: ["Emanoel Felipe", "Andrielly Ilza"], totalPaginas: 1 },
+                    { id: 9, nome: "Team 9", participantes: ["Emilly Zampieri", "Nicolas","Anielly"], totalPaginas: 1 },
+                    { id: 10, nome: "Team 10", participantes: ["Larissa Buture"], totalPaginas: 1 },
+                    { id: 11, nome: "Team 11", participantes: ["Vitor Andrioli", "Anderson", "Luiz Fernando"], totalPaginas: 1 },
+                    { id: 12, nome: "Team 12", participantes: ["Anihelly Faria Pinheiro ", "Emilly Zampieri ", "Nicolas slonoski"], totalPaginas: 1 },
+                    { id: 13, nome: "Team 13", participantes: ["João Victor", "Samuel"], totalPaginas: 1 },
+                    { id: 14, nome: "Team 14", participantes: ["Gabriel Machado"], totalPaginas: 1 },
+                    { id: 15, nome: "Team 15", participantes: ["Student 15-1", "Student 15-2"], totalPaginas: 1 }
+                ],
+                es: [
+                    { id: 1, nome: "Equipo 1", participantes: ["Phietro Emanuel","Henrique Brisola", "Juan", "Eduardo"], totalPaginas: 1 },
+                    { id: 2, nome: "Equipo 2", participantes: ["Luana Marcondes", "Hallana Oliveira ", "Davi Peres"], totalPaginas: 1 },
+                    { id: 3, nome: "Equipo 3", participantes: ["Nicole horn da silva ", "Kayk pereira ", "Yasmin de Oliveira ", "Victor Henrique"], totalPaginas: 1 },
+                    { id: 4, nome: "Equipo 4", participantes: ["Nicole Cristine Castorino", "Ticiane"], totalPaginas: 1 },
+                    { id: 5, nome: "Equipo 5", participantes: ["Larah", "João Antonio", "Gabi"], totalPaginas: 1 },
+                    { id: 6, nome: "Equipo 6", participantes: ["Júlia Sanchez", "Nicoly Castro"], totalPaginas: 1 },
+                    { id: 7, nome: "Equipo 7", participantes: ["Ana Clara dias", "Gabriela Antunes Geremias"], totalPaginas: 1 },
+                    { id: 8, nome: "Equipo 8", participantes: ["Emanoel Felipe", "Andrielly Ilza"], totalPaginas: 1 },
+                    { id: 9, nome: "Equipo 9", participantes: ["Emilly Zampieri", "Nicolas","Anielly"], totalPaginas: 1 },
+                    { id: 10, nome: "Equipo 10", participantes: ["Larissa Buture"], totalPaginas: 1 },
+                    { id: 11, nome: "Equipo 11", participantes: ["Vitor Andrioli", "Anderson", "Luiz Fernando"], totalPaginas: 1 },
+                    { id: 12, nome: "Equipo 12", participantes: ["Anihelly Faria Pinheiro ", "Emilly Zampieri ", "Nicolas slonoski"], totalPaginas: 1 },
+                    { id: 13, nome: "Equipo 13", participantes: ["João Victor", "Samuel"], totalPaginas: 1 },
+                    { id: 14, nome: "Equipo 14", participantes: ["Gabriel Machado"], totalPaginas: 1 },
+                    { id: 15, nome: "Equipo 15", participantes: ["Alumno 15-1", "Alumno 15-2"], totalPaginas: 1 }
+                ]
+            }
+        ,
+            desperdicio: {
+                pt: [
+                    { id: 1, nome: "Equipe 1", participantes: ["Phietro Emanuel","Henrique Brisola", "Juan", "Eduardo"], totalPaginas: 1, link: "" },
+                    { id: 2, nome: "Equipe 2", participantes: ["Luana Marcondes", "Hallana Oliveira ", "Davi Peres"], totalPaginas: 1, link: "" },
+                    { id: 3, nome: "Equipe 3", participantes: ["Nicole horn da silva ", "Kayk pereira ", "Yasmin de Oliveira ", "Victor Henrique"], totalPaginas: 1, link: "" },
+                    { id: 4, nome: "Equipe 4", participantes: ["Nicole Cristine Castorino", "Ticiane"], totalPaginas: 1, link: "" },
+                    { id: 5, nome: "Equipe 5", participantes: ["Larah", "João Antonio", "Gabi"], totalPaginas: 1, link: "" },
+                    { id: 6, nome: "Equipe 6", participantes: ["Júlia Sanchez", "Nicoly Castro"], totalPaginas: 1, link: "" },
+                    { id: 7, nome: "Equipe 7", participantes: ["Ana Clara dias", "Gabriela Antunes Geremias"], totalPaginas: 1, link: "" },
+                    { id: 8, nome: "Equipe 8", participantes: ["Emanoel Felipe", "Andrielly Ilza"], totalPaginas: 1, link: "" },
+                    { id: 9, nome: "Equipe 9", participantes: ["Emilly Zampieri", "Nicolas","Anielly"], totalPaginas: 1, link: "" },
+                    { id: 10, nome: "Equipe 10", participantes: ["Larissa Buture"], totalPaginas: 1, link: "" },
+                    { id: 11, nome: "Equipe 11", participantes: ["Vitor Andrioli", "Anderson", "Luiz Fernando"], totalPaginas: 1, link: "" },
+                    { id: 12, nome: "Equipe 12", participantes: ["Anihelly Faria Pinheiro ", "Emilly Zampieri ", "Nicolas slonoski"], totalPaginas: 1, link: "" },
+                    { id: 13, nome: "Equipe 13", participantes: ["João Victor", "Samuel"], totalPaginas: 1, link: "" },
+                    { id: 14, nome: "Equipe 14", participantes: ["Gabriel Machado"], totalPaginas: 1, link: "" },
+                    { id: 15, nome: "Equipe 15", participantes: ["Aluno 15-1", "Aluno 15-2"], totalPaginas: 1, link: "" }
+                ],
+                en: [
+                    { id: 1, nome: "Team 1", participantes: ["Phietro Emanuel","Henrique Brisola", "Juan", "Eduardo"], totalPaginas: 1, link: "" },
+                    { id: 2, nome: "Team 2", participantes: ["Luana Marcondes", "Hallana Oliveira ", "Davi Peres"], totalPaginas: 1, link: "" },
+                    { id: 3, nome: "Team 3", participantes: ["Nicole horn da silva ", "Kayk pereira ", "Yasmin de Oliveira ", "Victor Henrique"], totalPaginas: 1, link: "" },
+                    { id: 4, nome: "Team 4", participantes: ["Nicole Cristine Castorino", "Ticiane"], totalPaginas: 1, link: "" },
+                    { id: 5, nome: "Team 5", participantes: ["Larah", "João Antonio", "Gabi"], totalPaginas: 1, link: "" },
+                    { id: 6, nome: "Team 6", participantes: ["Júlia Sanchez", "Nicoly Castro"], totalPaginas: 1, link: "" },
+                    { id: 7, nome: "Team 7", participantes: ["Ana Clara dias", "Gabriela Antunes Geremias"], totalPaginas: 1, link: "" },
+                    { id: 8, nome: "Team 8", participantes: ["Emanoel Felipe", "Andrielly Ilza"], totalPaginas: 1, link: "" },
+                    { id: 9, nome: "Team 9", participantes: ["Emilly Zampieri", "Nicolas","Anielly"], totalPaginas: 1, link: "" },
+                    { id: 10, nome: "Team 10", participantes: ["Larissa Buture"], totalPaginas: 1, link: "" },
+                    { id: 11, nome: "Team 11", participantes: ["Vitor Andrioli", "Anderson", "Luiz Fernando"], totalPaginas: 1, link: "" },
+                    { id: 12, nome: "Team 12", participantes: ["Anihelly Faria Pinheiro ", "Emilly Zampieri ", "Nicolas slonoski"], totalPaginas: 1, link: "" },
+                    { id: 13, nome: "Team 13", participantes: ["João Victor", "Samuel"], totalPaginas: 1, link: "" },
+                    { id: 14, nome: "Team 14", participantes: ["Gabriel Machado"], totalPaginas: 1, link: "" },
+                    { id: 15, nome: "Team 15", participantes: ["Student 15-1", "Student 15-2"], totalPaginas: 1, link: "" }
+                ],
+                es: [
+                    { id: 1, nome: "Equipo 1", participantes: ["Phietro Emanuel","Henrique Brisola", "Juan", "Eduardo"], totalPaginas: 1, link: "" },
+                    { id: 2, nome: "Equipo 2", participantes: ["Luana Marcondes", "Hallana Oliveira ", "Davi Peres"], totalPaginas: 1, link: "" },
+                    { id: 3, nome: "Equipo 3", participantes: ["Nicole horn da silva ", "Kayk pereira ", "Yasmin de Oliveira ", "Victor Henrique"], totalPaginas: 1, link: "" },
+                    { id: 4, nome: "Equipo 4", participantes: ["Nicole Cristine Castorino", "Ticiane"], totalPaginas: 1, link: "" },
+                    { id: 5, nome: "Equipo 5", participantes: ["Larah", "João Antonio", "Gabi"], totalPaginas: 1, link: "" },
+                    { id: 6, nome: "Equipo 6", participantes: ["Júlia Sanchez", "Nicoly Castro"], totalPaginas: 1, link: "" },
+                    { id: 7, nome: "Equipo 7", participantes: ["Ana Clara dias", "Gabriela Antunes Geremias"], totalPaginas: 1, link: "" },
+                    { id: 8, nome: "Equipo 8", participantes: ["Emanoel Felipe", "Andrielly Ilza"], totalPaginas: 1, link: "" },
+                    { id: 9, nome: "Equipo 9", participantes: ["Emilly Zampieri", "Nicolas","Anielly"], totalPaginas: 1, link: "" },
+                    { id: 10, nome: "Equipo 10", participantes: ["Larissa Buture"], totalPaginas: 1, link: "" },
+                    { id: 11, nome: "Equipo 11", participantes: ["Vitor Andrioli", "Anderson", "Luiz Fernando"], totalPaginas: 1, link: "" },
+                    { id: 12, nome: "Equipo 12", participantes: ["Anihelly Faria Pinheiro ", "Emilly Zampieri ", "Nicolas slonoski"], totalPaginas: 1, link: "" },
+                    { id: 13, nome: "Equipo 13", participantes: ["João Victor", "Samuel"], totalPaginas: 1, link: "" },
+                    { id: 14, nome: "Equipo 14", participantes: ["Gabriel Machado"], totalPaginas: 1, link: "" },
+                    { id: 15, nome: "Equipo 15", participantes: ["Alumno 15-1", "Alumno 15-2"], totalPaginas: 1, link: "" }
+                ]
+            }
                 };
         const quizData = {
             pt: [
@@ -907,6 +1029,8 @@
             else if (tipoTrabalhoAtual === 'stopmotion') abrirVideo(equipaAtual.id);
             else if (tipoTrabalhoAtual === 'terrario') abrirTerrario(equipaAtual.id);
             else if (tipoTrabalhoAtual === 'terrario2') abrirTerrario2(equipaAtual.id);
+            else if (tipoTrabalhoAtual === 'projetofinal2tri') abrirProjetoFinal2Tri(equipaAtual.id);
+            else if (tipoTrabalhoAtual === 'desperdicio') abrirDesperdicio(equipaAtual.id);
         }
 
         function abrirTerrario2(equipaId) {
@@ -950,6 +1074,89 @@
             document.getElementById("pagina").style.display = 'block';
             document.getElementById("pagina").src = nomeArquivo;
             document.getElementById("contador").innerText = `${paginaAtual + 1} / ${equipaAtual.totalPaginas}`;
+        }
+
+        function abrirProjetoFinal2Tri(equipaId) {
+            const idioma = getIdiomaAtual();
+            const lista = equipesData.projetofinal2tri[idioma] || equipesData.projetofinal2tri.pt;
+            equipaAtual = lista.find(e => e.id === equipaId) || equipaAtual;
+            if(!equipaAtual) return;
+            const txt = idioma === 'en'? 'Final Project 2nd Trimester - ' : idioma === 'es'? 'Proyecto Final 2° Trim - ' : 'Projeto Final 2° Tri - ';
+            const tituloEl = document.getElementById('video-titulo');
+            const playerEl = document.getElementById('video-player');
+            if(tituloEl) tituloEl.innerText = `${txt}${equipaAtual.nome}`;
+            if(playerEl) playerEl.src = `projetofinal2tri_equipe${equipaAtual.id}.mp4`;
+            fecharOverlayEquipes();
+            const overlay = document.getElementById('video-overlay');
+            if(overlay) {
+                overlay.style.display = 'block';
+                const card = overlay.querySelector('.overlay-card');
+                if(card) {
+                    card.style.background = 'linear-gradient(180deg, #1a0033 0%, #4a0080 50%, #9d00ff 100%)';
+                    card.style.border = '2px solid #9d00ff';
+                    card.style.boxShadow = '0 0 40px rgba(157,0,255,0.6)';
+                }
+            }
+            document.body.style.overflow = 'hidden';
+        }
+
+        function abrirDesperdicio(equipaId) {
+            const idioma = getIdiomaAtual();
+            const lista = equipesData.desperdicio[idioma] || equipesData.desperdicio.pt;
+            equipaAtual = lista.find(e => e.id === equipaId) || equipaAtual;
+            if(!equipaAtual) return;
+            fecharOverlayEquipes();
+            const overlay = document.getElementById('curiosidade-overlay');
+            const detalhe = document.getElementById('curiosidade-detalhe');
+            if(!overlay || !detalhe) return;
+            
+            const txtTitulo = idioma==='en' ? 'WATER WASTE - ' : idioma==='es' ? 'DESPERDICIO DE AGUA - ' : 'DESPERDÍCIO DE ÁGUA - ';
+            const txtParticipantes = idioma==='en' ? 'Participants:' : idioma==='es' ? 'Participantes:' : 'Participantes:';
+            const txtVerSlides = idioma==='en' ? 'View Slides' : idioma==='es' ? 'Ver Diapositivas' : 'Ver Slides';
+            const txtLinkVazio = idioma==='en' ? 'Link not added yet. Edit the code and put the slides link in equipesData.desperdicio' : idioma==='es' ? 'Enlace aún no agregado. Edita el código y coloca el enlace de las diapositivas en equipesData.desperdicio' : 'Link ainda não adicionado. Edite o código e coloque o link dos slides em equipesData.desperdicio';
+            const txtVoltar = idioma==='en' ? '← Back' : idioma==='es' ? '← Volver' : '← Voltar';
+            
+            const listaParticipantes = equipaAtual.participantes.map(p=>`<li>${p.trim()}</li>`).join('');
+            const link = equipaAtual.link || '';
+            
+            let conteudoSlides = '';
+            if(link) {
+                conteudoSlides = `
+                    <div style="margin: 20px 0;">
+                        <p style="margin-bottom:15px; word-break:break-all;"><strong>Link:</strong> <a href="${link}" target="_blank" style="color:var(--secondary);">${link}</a></p>
+                        <a href="${link}" target="_blank" class="btn" style="background:var(--secondary); color:#000; text-decoration:none; display:inline-block; margin:10px 0;">${txtVerSlides} →</a>
+                        <div style="margin-top:20px; border:2px solid var(--secondary); border-radius:10px; overflow:hidden; height:500px;">
+                            <iframe src="${link}" width="100%" height="100%" frameborder="0" allowfullscreen style="border:none;"></iframe>
+                        </div>
+                        <p style="font-size:0.8rem; opacity:0.7; margin-top:10px;">Se o slide não carregar no iframe, clique em "${txtVerSlides}" para abrir em nova aba.</p>
+                    </div>
+                `;
+            } else {
+                conteudoSlides = `
+                    <div style="background:rgba(255,0,0,0.1); border:1px solid #ff0000; padding:20px; border-radius:10px; margin:20px 0;">
+                        <p style="color:#ff9999;">⚠️ ${txtLinkVazio}</p>
+                        <p style="margin-top:15px; font-size:0.9rem; font-family:monospace; background:#000; padding:10px; border-radius:5px;">
+                        No código, procure:<br>
+                        equipesData.desperdicio.pt[0].link = "https://docs.google.com/presentation/..."<br><br>
+                        Cole o link do Google Slides, Canva, PowerPoint Online, etc.
+                        </p>
+                    </div>
+                `;
+            }
+            
+            detalhe.innerHTML = `
+                <div style="text-align:center;">
+                    <h2 style="color:var(--secondary);">${txtTitulo}${equipaAtual.nome}</h2>
+                    <div style="text-align:left; max-width:500px; margin:20px auto; background:rgba(0,51,102,0.5); padding:20px; border-radius:8px; border:1px solid rgba(0,191,255,0.2);">
+                        <h4 style="color:var(--secondary); margin-bottom:10px;">${txtParticipantes}</h4>
+                        <ul style="margin-left:20px; line-height:1.8;">${listaParticipantes}</ul>
+                    </div>
+                    ${conteudoSlides}
+                    <button class="btn" onclick="fecharOverlay('curiosidade-overlay'); mostrarListaEquipes('desperdicio');" style="margin-top:20px;">${txtVoltar}</button>
+                </div>
+            `;
+            overlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
         }
 
 
@@ -3581,12 +3788,12 @@ function abrirTrabalhoAluno(tipo, alunoId) {
             }
             const overlayCard = document.getElementById('overlay-equipes-card');
             if(overlayCard) {
-                overlayCard.classList.remove('tema-floresta', 'tema-oceano', 'tema-laranja');
-                if(tipo === 'terrario2') { overlayCard.classList.add('tema-laranja'); } else if(tipo === 'terrario') { overlayCard.classList.add('tema-floresta'); } else { overlayCard.classList.add('tema-oceano'); }
+                overlayCard.classList.remove('tema-floresta', 'tema-oceano', 'tema-laranja', 'tema-projeto', 'tema-desperdicio');
+                if(tipo === 'terrario2') { overlayCard.classList.add('tema-laranja'); } else if(tipo === 'terrario') { overlayCard.classList.add('tema-floresta'); } else if(tipo === 'projetofinal2tri') { overlayCard.classList.add('tema-projeto'); } else if(tipo === 'desperdicio') { overlayCard.classList.add('tema-desperdicio'); } else { overlayCard.classList.add('tema-oceano'); }
             }
-            let titulo = tipo === 'gibi'? 'Gibi - Escolha uma Equipe' : tipo === 'stopmotion'? 'Stop Motion - Escolha uma Equipe' : tipo === 'terrario2'? 'CAUSAS E CONSEQUÊNCIAS - Escolha uma Equipe' : 'Terrário - Escolha uma Equipe';
-            if (idioma === 'en') titulo = tipo === 'gibi'? 'Comic - Choose a Team' : tipo === 'stopmotion'? 'Stop Motion - Choose a Team' : tipo === 'terrario2'? 'CAUSES AND CONSEQUENCES - Choose a Team' : 'Terrarium - Choose a Team';
-            if (idioma === 'es') titulo = tipo === 'gibi'? 'Cómic - Elige un Equipo' : tipo === 'stopmotion'? 'Stop Motion - Elige un Equipo' : tipo === 'terrario2'? 'CAUSAS Y CONSECUENCIAS - Elige un Equipo' : 'Terrario - Elige un Equipo';
+            let titulo = tipo === 'gibi'? 'Gibi - Escolha uma Equipe' : tipo === 'stopmotion'? 'Stop Motion - Escolha uma Equipe' : tipo === 'terrario2'? 'CAUSAS E CONSEQUÊNCIAS - Escolha uma Equipe' : tipo === 'projetofinal2tri'? 'PROJETO FINAL 2° TRI - Escolha uma Equipe' : tipo === 'desperdicio'? 'DESPERDÍCIO DE ÁGUA - Escolha uma Equipe' : 'Terrário - Escolha uma Equipe';
+            if (idioma === 'en') titulo = tipo === 'gibi'? 'Comic - Choose a Team' : tipo === 'stopmotion'? 'Stop Motion - Choose a Team' : tipo === 'terrario2'? 'CAUSES AND CONSEQUENCES - Choose a Team' : tipo === 'projetofinal2tri'? 'FINAL PROJECT 2ND TRI - Choose a Team' : tipo === 'desperdicio'? 'WATER WASTE - Choose a Team' : 'Terrarium - Choose a Team';
+            if (idioma === 'es') titulo = tipo === 'gibi'? 'Cómic - Elige un Equipo' : tipo === 'stopmotion'? 'Stop Motion - Elige un Equipo' : tipo === 'terrario2'? 'CAUSAS Y CONSECUENCIAS - Elige un Equipo' : tipo === 'projetofinal2tri'? 'PROYECTO FINAL 2° TRIM - Elige un Equipo' : tipo === 'desperdicio'? 'DESPERDICIO DE AGUA - Elige un Equipo' : 'Terrario - Elige un Equipo';
             const conteudoEl = document.getElementById('equipes-overlay-conteudo');
             if(conteudoEl) conteudoEl.innerHTML = `<h3 style="text-align:center; color:var(--secondary); font-size:2rem; margin-bottom:2rem; position:relative; z-index:2;">${titulo}</h3><div class="equipes-grid" id="equipes-dinamicas"></div>`;
             const grid = document.getElementById('equipes-dinamicas');
@@ -3620,9 +3827,9 @@ function abrirTrabalhoAluno(tipo, alunoId) {
                 equipe = { id: equipeId, nome: 'Equipe ' + equipeId, participantes: ['Participante'], totalPaginas: 10 };
             }
             equipaAtual = equipe;
-            let tituloTipo = tipoTrabalhoAtual === 'gibi'? 'Gibi' : tipoTrabalhoAtual === 'stopmotion'? 'Stop Motion' : tipoTrabalhoAtual === 'terrario2'? 'CAUSAS E CONSEQUÊNCIAS' : 'Terrário';
-            if(idioma === 'en') tituloTipo = tipoTrabalhoAtual === 'gibi'? 'Comic' : tipoTrabalhoAtual === 'stopmotion'? 'Stop Motion' : tipoTrabalhoAtual === 'terrario2'? 'CAUSES AND CONSEQUENCES' : 'Terrarium';
-            if(idioma === 'es') tituloTipo = tipoTrabalhoAtual === 'gibi'? 'Cómic' : tipoTrabalhoAtual === 'stopmotion'? 'Stop Motion' : tipoTrabalhoAtual === 'terrario2'? 'CAUSAS Y CONSECUENCIAS' : 'Terrario';
+            let tituloTipo = tipoTrabalhoAtual === 'gibi'? 'Gibi' : tipoTrabalhoAtual === 'stopmotion'? 'Stop Motion' : tipoTrabalhoAtual === 'terrario2'? 'CAUSAS E CONSEQUÊNCIAS' : tipoTrabalhoAtual === 'projetofinal2tri'? 'PROJETO FINAL 2° TRI' : tipoTrabalhoAtual === 'desperdicio'? 'DESPERDÍCIO DE ÁGUA' : 'Terrário';
+            if(idioma === 'en') tituloTipo = tipoTrabalhoAtual === 'gibi'? 'Comic' : tipoTrabalhoAtual === 'stopmotion'? 'Stop Motion' : tipoTrabalhoAtual === 'terrario2'? 'CAUSES AND CONSEQUENCES' : tipoTrabalhoAtual === 'projetofinal2tri'? 'FINAL PROJECT 2ND TRI' : tipoTrabalhoAtual === 'desperdicio'? 'WATER WASTE' : 'Terrarium';
+            if(idioma === 'es') tituloTipo = tipoTrabalhoAtual === 'gibi'? 'Cómic' : tipoTrabalhoAtual === 'stopmotion'? 'Stop Motion' : tipoTrabalhoAtual === 'terrario2'? 'CAUSAS Y CONSECUENCIAS' : tipoTrabalhoAtual === 'projetofinal2tri'? 'PROYECTO FINAL 2° TRIM' : tipoTrabalhoAtual === 'desperdicio'? 'DESPERDICIO DE AGUA' : 'Terrario';
             
             // Tradução interna
             const txtArquivos = idioma==='en' ? 'files' : idioma==='es' ? 'archivos' : 'arquivos';
@@ -3654,7 +3861,7 @@ function abrirTrabalhoAluno(tipo, alunoId) {
             if(overlay) overlay.style.display = 'none';
             document.body.style.overflow = 'auto';
             const card = document.getElementById('overlay-equipes-card');
-            if(card) card.classList.remove('tema-floresta', 'tema-oceano', 'tema-laranja');
+            if(card) card.classList.remove('tema-floresta', 'tema-oceano', 'tema-laranja', 'tema-projeto', 'tema-desperdicio');
         }
 
         function startQuiz() { currentQ = 0; quizScore = 0; const startEl = document.getElementById('quiz-start'); const resultEl = document.getElementById('quiz-result'); const boxEl = document.getElementById('quiz-box'); if(startEl) startEl.style.display = 'none'; if(resultEl) resultEl.style.display = 'none'; if(boxEl) boxEl.style.display = 'block'; showQuestion(); }
@@ -3950,6 +4157,10 @@ function abrirTrabalhoAluno(tipo, alunoId) {
                     terrario2_desc: {pt:"Veja as 15 equipes - Terrário 2",en:"See 15 teams - Terrarium 2",es:"Ver 15 equipos - Terrario 2"},
                     individual_tit: {pt:"Trabalhos Individuais",en:"Individual Projects",es:"Trabajos Individuales"},
                     individual_desc: {pt:"Veja os 10 itens e a quantidade de água de cada aluno",en:"See the 10 items and water amount per student",es:"Ver los 10 elementos y la cantidad de agua por alumno"},
+                    projeto2tri_tit: {pt:"PROJETO FINAL 2° TRI",en:"FINAL PROJECT 2ND TRIMESTER",es:"PROYECTO FINAL 2° TRIM"},
+                    projeto2tri_desc: {pt:"Veja as 15 equipes - 1 vídeo por equipe",en:"See 15 teams - 1 video per team",es:"Ver 15 equipos - 1 video por equipo"},
+                    desperdicio_tit: {pt:"DESPERDÍCIO DE ÁGUA",en:"WATER WASTE",es:"DESPERDICIO DE AGUA"},
+                    desperdicio_desc: {pt:"Veja as 15 equipes - Slides",en:"See 15 teams - Slides",es:"Ver 15 equipos - Diapositivas"},
                     anterior: {pt:"← Anterior",en:"← Previous",es:"← Anterior"},
                     proxima: {pt:"Próxima →",en:"Next →",es:"Siguiente →"},
                     dica1_tit: {pt:"Banhos Rápidos",en:"Quick Showers",es:"Duchas Rápidas"},
